@@ -1,0 +1,252 @@
+[
+  {
+    "fact_id": "fact_001",
+    "fact_text": "La Terre a environ 4,5 milliards d'années.",
+    "verdict": "TRUE",
+    "sources": [
+      {
+        "title": "NASA - Âge de la Terre",
+        "url": "https://www.nasa.gov/",
+        "snippet": "Les scientifiques ont calculé que la Terre a 4,54 milliards d'années, avec une marge d'erreur de 50 millions d'années."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_002",
+    "fact_text": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
+    "verdict": "TRUE",
+    "sources": [
+      {
+        "title": "NIST - Propriétés de l'eau",
+        "url": "https://www.nist.gov/",
+        "snippet": "À pression atmosphérique standard (1 atm), l'eau bout à 100°C (212°F)."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_003",
+    "fact_text": "La Terre est plate.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "NASA - La Terre",
+        "url": "https://www.nasa.gov/",
+        "snippet": "La Terre est un sphéroïde aplati, légèrement aplatie aux pôles et renflée à l'équateur."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_004",
+    "fact_text": "Les vaccins causent l'autisme.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "CDC - Sécurité des vaccins",
+        "url": "https://www.cdc.gov/",
+        "snippet": "De nombreuses études ont examiné s'il existe un lien entre les vaccins et les troubles du spectre autistique. Aucune n'a trouvé un tel lien."
+      },
+      {
+        "title": "OMS - Vaccins",
+        "url": "https://www.who.int/",
+        "snippet": "Il n'y a aucune preuve d'un lien entre les vaccins et l'autisme."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_005",
+    "fact_text": "La vitesse de la lumière dans le vide est d'environ 299 792 kilomètres par seconde.",
+    "verdict": "TRUE",
+    "sources": [
+      {
+        "title": "NIST - Constantes physiques fondamentales",
+        "url": "https://www.nist.gov/",
+        "snippet": "La vitesse de la lumière dans le vide c = 299 792 458 m/s exactement."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_006",
+    "fact_text": "Les humains n'utilisent que 10% de leur cerveau.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "Scientific American",
+        "url": "https://www.scientificamerican.com/",
+        "snippet": "L'imagerie cérébrale montre que toutes les zones du cerveau sont actives à différents moments. Nous utilisons pratiquement chaque partie du cerveau."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_007",
+    "fact_text": "La Grande Muraille de Chine est visible depuis l'espace.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "NASA - Grande Muraille de Chine",
+        "url": "https://www.nasa.gov/",
+        "snippet": "La Grande Muraille est difficile à voir depuis l'orbite terrestre basse sans aide et n'est pas visible depuis la Lune."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_008",
+    "fact_text": "Le changement climatique est causé par les activités humaines.",
+    "verdict": "TRUE",
+    "sources": [
+      {
+        "title": "Rapport du GIEC",
+        "url": "https://www.ipcc.ch/",
+        "snippet": "Il est sans équivoque que l'influence humaine a réchauffé l'atmosphère, l'océan et les terres."
+      },
+      {
+        "title": "NASA Climat",
+        "url": "https://climate.nasa.gov/",
+        "snippet": "La tendance actuelle au réchauffement est sans équivoque le résultat de l'activité humaine depuis le milieu du 20e siècle."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_009",
+    "fact_text": "Les antennes 5G propagent le COVID-19.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "OMS - Mythes sur le coronavirus",
+        "url": "https://www.who.int/",
+        "snippet": "Les virus ne peuvent pas voyager sur les ondes radio/réseaux mobiles. Le COVID-19 se propage dans de nombreux pays qui n'ont pas la 5G."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_010",
+    "fact_text": "La forêt amazonienne produit 20% de l'oxygène de la Terre.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [
+      {
+        "title": "National Geographic",
+        "url": "https://www.nationalgeographic.com/",
+        "snippet": "Bien que l'Amazonie soit vitale pour l'absorption du carbone, elle consomme presque tout l'oxygène qu'elle produit. Le phytoplancton océanique produit la majeure partie de l'oxygène."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_011",
+    "fact_text": "La Tour Eiffel mesure 330 mètres de haut.",
+    "verdict": "TRUE",
+    "sources": [
+      {
+        "title": "Site officiel Tour Eiffel",
+        "url": "https://www.toureiffel.paris/",
+        "snippet": "La Tour Eiffel culmine à 330 mètres avec ses antennes, 324 mètres sans."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_012",
+    "fact_text": "Napoléon Bonaparte était petit.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "Britannica - Napoléon",
+        "url": "https://www.britannica.com/",
+        "snippet": "Napoléon mesurait environ 1,70 m, ce qui était dans la moyenne pour un Français de son époque. La confusion vient des différences entre mesures anglaises et françaises."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_013",
+    "fact_text": "Le sang désoxygéné est bleu.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "Scientific American",
+        "url": "https://www.scientificamerican.com/",
+        "snippet": "Le sang est toujours rouge. Le sang désoxygéné est rouge foncé, tandis que le sang oxygéné est rouge vif. Les veines apparaissent bleues à cause de la façon dont la lumière pénètre la peau."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_014",
+    "fact_text": "Les chauves-souris sont aveugles.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "National Geographic",
+        "url": "https://www.nationalgeographic.com/",
+        "snippet": "Les chauves-souris ne sont pas aveugles. La plupart ont une bonne vision et utilisent l'écholocation en complément, pas en remplacement, de leur vue."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_015",
+    "fact_text": "L'alcool réchauffe le corps.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/",
+        "snippet": "L'alcool dilate les vaisseaux sanguins, donnant une sensation de chaleur, mais fait en réalité baisser la température corporelle centrale."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_016",
+    "fact_text": "La Lune influence les naissances.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "UCLA Health",
+        "url": "https://www.uclahealth.org/",
+        "snippet": "Plusieurs études à grande échelle n'ont trouvé aucune corrélation entre les phases de la Lune et le taux de naissances."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_017",
+    "fact_text": "Le sucre rend les enfants hyperactifs.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "Yale Scientific",
+        "url": "https://www.yalescientific.org/",
+        "snippet": "De nombreuses études contrôlées n'ont montré aucun lien entre la consommation de sucre et l'hyperactivité chez les enfants."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_018",
+    "fact_text": "La France est le pays le plus visité au monde.",
+    "verdict": "TRUE",
+    "sources": [
+      {
+        "title": "Organisation Mondiale du Tourisme",
+        "url": "https://www.unwto.org/",
+        "snippet": "La France reste la première destination touristique mondiale avec près de 90 millions de visiteurs internationaux par an."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_019",
+    "fact_text": "Les éoliennes tuent plus d'oiseaux que les chats.",
+    "verdict": "FALSE",
+    "sources": [
+      {
+        "title": "US Fish and Wildlife Service",
+        "url": "https://www.fws.gov/",
+        "snippet": "Les chats domestiques tuent environ 2,4 milliards d'oiseaux par an aux États-Unis, contre environ 234 000 pour les éoliennes."
+      }
+    ]
+  },
+  {
+    "fact_id": "fact_020",
+    "fact_text": "Le cerveau humain consomme 20% de l'énergie du corps.",
+    "verdict": "TRUE",
+    "sources": [
+      {
+        "title": "Scientific American",
+        "url": "https://www.scientificamerican.com/",
+        "snippet": "Bien qu'il ne représente que 2% de la masse corporelle, le cerveau consomme environ 20% de l'énergie métabolique au repos."
+      }
+    ]
+  }
+]

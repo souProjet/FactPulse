@@ -1,0 +1,62 @@
+# FactPulse Configuration
+# Performance-optimized settings for RTX 5060 GPU
+
+app:
+  name: "FactPulse"
+  version: "1.0.0"
+  debug: false
+  timeout_seconds: 2.0
+
+# Model configurations
+models:
+  claim_detector:
+    # DeBERTa-v3-small for claim detection (fast + accurate)
+    model_name: "microsoft/deberta-v3-small"
+    max_length: 256
+    batch_size: 8
+    device: "cuda"
+    
+  embedding:
+    # MiniLM for fast semantic search
+    model_name: "sentence-transformers/all-MiniLM-L6-v2"
+    dimension: 384
+    device: "cuda"
+    
+  llm:
+    # Phi-3-mini quantized for verification
+    model_name: "microsoft/Phi-3-mini-4k-instruct"
+    quantization: "4bit"
+    max_new_tokens: 256
+    temperature: 0.1
+    device: "cuda"
+
+# Pipeline thresholds
+thresholds:
+  claim_detection:
+    min_confidence: 0.6
+  check_worthiness:
+    min_score: 0.5
+  fast_lookup:
+    similarity_threshold: 0.92
+  rag:
+    retrieval_top_k: 5
+    similarity_threshold: 0.75
+
+# Performance targets (milliseconds)
+performance:
+  claim_detection_target_ms: 100
+  fast_lookup_target_ms: 300
+  rag_target_ms: 1500
+  total_target_ms: 2000
+
+# Data paths
+data:
+  known_facts_path: "data/known_facts.json"
+  faiss_index_path: "data/vector_index.faiss"
+  facts_metadata_path: "data/facts_metadata.json"
+
+# Logging
+logging:
+  level: "INFO"
+  performance_logging: true
+  log_file: "logs/factpulse.log"

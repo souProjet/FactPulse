@@ -1,0 +1,35 @@
+# FactPulse Dependencies
+# Python 3.11+ required
+
+# Web Framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+
+# ML/AI Core
+torch>=2.1.0
+transformers>=4.36.0
+sentence-transformers>=2.2.2
+
+# Vector Search
+faiss-cpu>=1.7.4
+# For GPU: install faiss-gpu instead
+# faiss-gpu>=1.7.4
+
+# Quantization
+bitsandbytes>=0.42.0
+accelerate>=0.25.0
+
+# Configuration
+pyyaml>=6.0.1
+
+# Utilities
+numpy>=1.24.0
+
+# Development / Testing
+httpx>=0.26.0
+pytest>=7.4.0
+pytest-asyncio>=0.23.0
+
+# Optional: Redis for caching
+# redis>=5.0.0

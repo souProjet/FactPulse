@@ -1,0 +1,346 @@
+/**
+ * FactPulse Content Script Styles
+ * 
+ * Design minimaliste avec badges de statut colorés
+ */
+
+/* ============================================================================
+   BADGE
+   ============================================================================ */
+
+#factpulse-badge {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999999;
+  
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  padding: 10px 16px;
+  border-radius: 50px;
+  
+  background: #1a1a2e;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  
+  cursor: pointer;
+  user-select: none;
+  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#factpulse-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.fp-badge-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.fp-badge-text {
+  white-space: nowrap;
+}
+
+/* Status colors */
+.fp-badge-idle {
+  background: #2d3748;
+}
+
+.fp-badge-checking {
+  background: #ed8936;
+}
+
+.fp-badge-success {
+  background: #38a169;
+}
+
+.fp-badge-warning {
+  background: #e53e3e;
+}
+
+.fp-badge-error {
+  background: #742a2a;
+}
+
+/* Pulse animation */
+.fp-badge-pulse {
+  animation: fp-pulse 1.5s infinite;
+}
+
+@keyframes fp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* ============================================================================
+   PANEL
+   ============================================================================ */
+
+#factpulse-panel {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 999998;
+  
+  width: 360px;
+  max-height: 500px;
+  
+  background: #1a1a2e;
+  border-radius: 16px;
+  
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #e2e8f0;
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  
+  overflow: hidden;
+}
+
+#factpulse-panel.fp-panel-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fp-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 16px 20px;
+  
+  background: #16162a;
+  border-bottom: 1px solid #2d3748;
+}
+
+.fp-panel-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.fp-panel-close {
+  width: 28px;
+  height: 28px;
+  
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  
+  color: #a0aec0;
+  font-size: 20px;
+  cursor: pointer;
+  
+  transition: all 0.2s ease;
+}
+
+.fp-panel-close:hover {
+  background: #2d3748;
+  color: #fff;
+}
+
+.fp-panel-content {
+  padding: 16px 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* ============================================================================
+   RESULTS
+   ============================================================================ */
+
+.fp-results {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fp-result {
+  padding: 14px;
+  border-radius: 12px;
+  background: #2d3748;
+}
+
+.fp-result-ok {
+  background: rgba(56, 161, 105, 0.2);
+  color: #9ae6b4;
+}
+
+.fp-result-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.fp-verdict-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.fp-verdict-true .fp-verdict-icon {
+  background: #38a169;
+  color: #fff;
+}
+
+.fp-verdict-false .fp-verdict-icon {
+  background: #e53e3e;
+  color: #fff;
+}
+
+.fp-verdict-partial .fp-verdict-icon {
+  background: #ed8936;
+  color: #fff;
+}
+
+.fp-verdict-unknown .fp-verdict-icon {
+  background: #718096;
+  color: #fff;
+}
+
+.fp-verdict-label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.fp-verdict-true .fp-verdict-label { color: #9ae6b4; }
+.fp-verdict-false .fp-verdict-label { color: #feb2b2; }
+.fp-verdict-partial .fp-verdict-label { color: #fbd38d; }
+.fp-verdict-unknown .fp-verdict-label { color: #a0aec0; }
+
+.fp-confidence {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 10px;
+  
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  color: #a0aec0;
+}
+
+.fp-claim {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.fp-explanation {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #a0aec0;
+}
+
+.fp-sources {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #718096;
+}
+
+.fp-source {
+  color: #63b3ed;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.fp-source:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   OTHER ELEMENTS
+   ============================================================================ */
+
+.fp-panel-empty,
+.fp-panel-error {
+  text-align: center;
+  padding: 20px;
+  color: #a0aec0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.fp-panel-error {
+  color: #feb2b2;
+}
+
+.fp-panel-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 20px;
+  
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 10px;
+  
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fp-panel-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.fp-panel-btn:active {
+  transform: translateY(0);
+}
+
+.fp-timing {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 11px;
+  color: #718096;
+}
+
+.fp-panel-loading {
+  text-align: center;
+  padding: 40px;
+  color: #a0aec0;
+}
+
+/* Scrollbar */
+.fp-panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fp-panel-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fp-panel-content::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 3px;
+}
+
+.fp-panel-content::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
