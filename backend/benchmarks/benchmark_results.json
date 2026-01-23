@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-01-22T18:40:02.821754",
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 5060",
+  "total_samples": 85,
+  "metrics": {
+    "claim_detection": {
+      "mean_ms": 2.79,
+      "p95_ms": 3.29,
+      "std_ms": 0.23,
+      "target_met": true
+    },
+    "fast_lookup": {
+      "mean_ms": 0,
+      "p95_ms": 0.0,
+      "std_ms": 0,
+      "target_met": true
+    },
+    "rag": {
+      "mean_ms": 0,
+      "p95_ms": 0.0,
+      "std_ms": 0,
+      "target_met": true
+    },
+    "total": {
+      "mean_ms": 2.8,
+      "p95_ms": 3.29,
+      "std_ms": 0.23,
+      "target_met": true
+    }
+  },
+  "gpu_memory": {
+    "peak_mb": 230.84,
+    "avg_mb": 230.84
+  }
+}

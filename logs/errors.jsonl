@@ -1,0 +1,20 @@
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 200ms", "timestamp": "2026-01-22T18:22:41.332339", "recoverable": true, "details": {"timeout_ms": 200.0}}
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 200ms", "timestamp": "2026-01-22T18:25:29.120474", "recoverable": true, "details": {"timeout_ms": 200.0}}
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 2000ms", "timestamp": "2026-01-22T18:26:13.918019", "recoverable": true, "details": {"timeout_ms": 2000.0}}
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 2000ms", "timestamp": "2026-01-22T18:27:28.326145", "recoverable": true, "details": {"timeout_ms": 2000.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T18:28:07.657323", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T18:28:10.174801", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 2000ms", "timestamp": "2026-01-22T18:28:46.856315", "recoverable": true, "details": {"timeout_ms": 2000.0}}
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 2000ms", "timestamp": "2026-01-22T18:35:19.281827", "recoverable": true, "details": {"timeout_ms": 2000.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T18:35:46.970583", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T18:36:11.144487", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T18:36:12.682113", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T18:36:14.204518", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 2000ms", "timestamp": "2026-01-22T18:36:16.214385", "recoverable": true, "details": {"timeout_ms": 2000.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T18:40:51.148454", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "UNKNOWN", "stage": "rag_verification", "message": "'DynamicCache' object has no attribute 'seen_tokens'", "timestamp": "2026-01-22T19:15:49.527290", "recoverable": true, "details": {"exception_type": "AttributeError"}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T19:24:36.742135", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T19:24:52.346309", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "rag_verification", "message": "Timeout après 1500ms", "timestamp": "2026-01-22T19:26:17.215174", "recoverable": true, "details": {"timeout_ms": 1500.0}}
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 2000ms", "timestamp": "2026-01-22T19:26:26.585764", "recoverable": true, "details": {"timeout_ms": 2000.0}}
+{"error_type": "TIMEOUT", "stage": "claim_detection", "message": "Timeout après 2000ms", "timestamp": "2026-01-22T19:26:29.732469", "recoverable": true, "details": {"timeout_ms": 2000.0}}

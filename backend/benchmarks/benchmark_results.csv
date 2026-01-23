@@ -1,0 +1,86 @@
+text_id,text_preview,iteration,claim_detection_ms,claims_detected,claims_to_verify,fast_lookup_ms,fast_lookup_found,rag_retrieval_ms,rag_generation_ms,rag_total_ms,total_pipeline_ms,gpu_memory_mb,verdict,confidence
+0,La Terre est plate....,0,2.59,0,0,0.0,False,0.0,0.0,0.0,2.6,230.84,,0.0
+0,La Terre est plate....,1,2.81,0,0,0.0,False,0.0,0.0,0.0,2.82,230.84,,0.0
+0,La Terre est plate....,2,2.77,0,0,0.0,False,0.0,0.0,0.0,2.78,230.84,,0.0
+0,La Terre est plate....,3,2.87,0,0,0.0,False,0.0,0.0,0.0,2.88,230.84,,0.0
+0,La Terre est plate....,4,2.56,0,0,0.0,False,0.0,0.0,0.0,2.57,230.84,,0.0
+1,L'eau bout à 100 degrés Celsius au niveau de la me...,0,3.02,0,0,0.0,False,0.0,0.0,0.0,3.03,230.84,,0.0
+1,L'eau bout à 100 degrés Celsius au niveau de la me...,1,2.75,0,0,0.0,False,0.0,0.0,0.0,2.76,230.84,,0.0
+1,L'eau bout à 100 degrés Celsius au niveau de la me...,2,2.92,0,0,0.0,False,0.0,0.0,0.0,2.93,230.84,,0.0
+1,L'eau bout à 100 degrés Celsius au niveau de la me...,3,2.77,0,0,0.0,False,0.0,0.0,0.0,2.78,230.84,,0.0
+1,L'eau bout à 100 degrés Celsius au niveau de la me...,4,2.76,0,0,0.0,False,0.0,0.0,0.0,2.77,230.84,,0.0
+2,Les vaccins causent l'autisme....,0,2.59,0,0,0.0,False,0.0,0.0,0.0,2.6,230.84,,0.0
+2,Les vaccins causent l'autisme....,1,2.64,0,0,0.0,False,0.0,0.0,0.0,2.65,230.84,,0.0
+2,Les vaccins causent l'autisme....,2,2.55,0,0,0.0,False,0.0,0.0,0.0,2.56,230.84,,0.0
+2,Les vaccins causent l'autisme....,3,2.65,0,0,0.0,False,0.0,0.0,0.0,2.66,230.84,,0.0
+2,Les vaccins causent l'autisme....,4,2.7,0,0,0.0,False,0.0,0.0,0.0,2.71,230.84,,0.0
+3,La Tour Eiffel mesure 330 mètres de haut....,0,2.71,0,0,0.0,False,0.0,0.0,0.0,2.72,230.84,,0.0
+3,La Tour Eiffel mesure 330 mètres de haut....,1,2.57,0,0,0.0,False,0.0,0.0,0.0,2.58,230.84,,0.0
+3,La Tour Eiffel mesure 330 mètres de haut....,2,3.48,0,0,0.0,False,0.0,0.0,0.0,3.49,230.84,,0.0
+3,La Tour Eiffel mesure 330 mètres de haut....,3,3.24,0,0,0.0,False,0.0,0.0,0.0,3.25,230.84,,0.0
+3,La Tour Eiffel mesure 330 mètres de haut....,4,3.18,0,0,0.0,False,0.0,0.0,0.0,3.19,230.84,,0.0
+4,Le cerveau humain consomme 20% de l'énergie du cor...,0,3.25,0,0,0.0,False,0.0,0.0,0.0,3.26,230.84,,0.0
+4,Le cerveau humain consomme 20% de l'énergie du cor...,1,3.17,0,0,0.0,False,0.0,0.0,0.0,3.18,230.84,,0.0
+4,Le cerveau humain consomme 20% de l'énergie du cor...,2,2.75,0,0,0.0,False,0.0,0.0,0.0,2.76,230.84,,0.0
+4,Le cerveau humain consomme 20% de l'énergie du cor...,3,2.69,0,0,0.0,False,0.0,0.0,0.0,2.7,230.84,,0.0
+4,Le cerveau humain consomme 20% de l'énergie du cor...,4,2.82,0,0,0.0,False,0.0,0.0,0.0,2.83,230.84,,0.0
+5,La France est le pays le plus visité au monde avec...,0,3.36,1,0,0.0,False,0.0,0.0,0.0,3.37,230.84,,0.0
+5,La France est le pays le plus visité au monde avec...,1,2.94,1,0,0.0,False,0.0,0.0,0.0,2.95,230.84,,0.0
+5,La France est le pays le plus visité au monde avec...,2,2.94,1,0,0.0,False,0.0,0.0,0.0,2.95,230.84,,0.0
+5,La France est le pays le plus visité au monde avec...,3,2.76,1,0,0.0,False,0.0,0.0,0.0,2.77,230.84,,0.0
+5,La France est le pays le plus visité au monde avec...,4,2.83,1,0,0.0,False,0.0,0.0,0.0,2.84,230.84,,0.0
+6,Les humains n'utilisent que 10% de leur cerveau....,0,2.93,0,0,0.0,False,0.0,0.0,0.0,2.93,230.84,,0.0
+6,Les humains n'utilisent que 10% de leur cerveau....,1,2.67,0,0,0.0,False,0.0,0.0,0.0,2.67,230.84,,0.0
+6,Les humains n'utilisent que 10% de leur cerveau....,2,2.89,0,0,0.0,False,0.0,0.0,0.0,2.9,230.84,,0.0
+6,Les humains n'utilisent que 10% de leur cerveau....,3,2.69,0,0,0.0,False,0.0,0.0,0.0,2.7,230.84,,0.0
+6,Les humains n'utilisent que 10% de leur cerveau....,4,2.64,0,0,0.0,False,0.0,0.0,0.0,2.65,230.84,,0.0
+7,La Grande Muraille de Chine est visible depuis l'e...,0,3.03,0,0,0.0,False,0.0,0.0,0.0,3.04,230.84,,0.0
+7,La Grande Muraille de Chine est visible depuis l'e...,1,2.71,0,0,0.0,False,0.0,0.0,0.0,2.71,230.84,,0.0
+7,La Grande Muraille de Chine est visible depuis l'e...,2,2.71,0,0,0.0,False,0.0,0.0,0.0,2.71,230.84,,0.0
+7,La Grande Muraille de Chine est visible depuis l'e...,3,2.65,0,0,0.0,False,0.0,0.0,0.0,2.66,230.84,,0.0
+7,La Grande Muraille de Chine est visible depuis l'e...,4,3.29,0,0,0.0,False,0.0,0.0,0.0,3.29,230.84,,0.0
+8,Napoléon Bonaparte était petit....,0,2.64,0,0,0.0,False,0.0,0.0,0.0,2.65,230.84,,0.0
+8,Napoléon Bonaparte était petit....,1,2.61,0,0,0.0,False,0.0,0.0,0.0,2.61,230.84,,0.0
+8,Napoléon Bonaparte était petit....,2,2.61,0,0,0.0,False,0.0,0.0,0.0,2.62,230.84,,0.0
+8,Napoléon Bonaparte était petit....,3,2.58,0,0,0.0,False,0.0,0.0,0.0,2.59,230.84,,0.0
+8,Napoléon Bonaparte était petit....,4,2.56,0,0,0.0,False,0.0,0.0,0.0,2.57,230.84,,0.0
+9,Le sang désoxygéné est bleu....,0,2.61,0,0,0.0,False,0.0,0.0,0.0,2.62,230.84,,0.0
+9,Le sang désoxygéné est bleu....,1,2.57,0,0,0.0,False,0.0,0.0,0.0,2.58,230.84,,0.0
+9,Le sang désoxygéné est bleu....,2,2.73,0,0,0.0,False,0.0,0.0,0.0,2.74,230.84,,0.0
+9,Le sang désoxygéné est bleu....,3,2.67,0,0,0.0,False,0.0,0.0,0.0,2.67,230.84,,0.0
+9,Le sang désoxygéné est bleu....,4,2.69,0,0,0.0,False,0.0,0.0,0.0,2.7,230.84,,0.0
+10,Je pense que la pizza est le meilleur plat....,0,2.62,0,0,0.0,False,0.0,0.0,0.0,2.63,230.84,,0.0
+10,Je pense que la pizza est le meilleur plat....,1,2.56,0,0,0.0,False,0.0,0.0,0.0,2.57,230.84,,0.0
+10,Je pense que la pizza est le meilleur plat....,2,2.55,0,0,0.0,False,0.0,0.0,0.0,2.56,230.84,,0.0
+10,Je pense que la pizza est le meilleur plat....,3,2.79,0,0,0.0,False,0.0,0.0,0.0,2.8,230.84,,0.0
+10,Je pense que la pizza est le meilleur plat....,4,2.88,0,0,0.0,False,0.0,0.0,0.0,2.88,230.84,,0.0
+11,"À mon avis, Paris est une belle ville....",0,3.11,0,0,0.0,False,0.0,0.0,0.0,3.12,230.84,,0.0
+11,"À mon avis, Paris est une belle ville....",1,2.55,0,0,0.0,False,0.0,0.0,0.0,2.56,230.84,,0.0
+11,"À mon avis, Paris est une belle ville....",2,2.57,0,0,0.0,False,0.0,0.0,0.0,2.57,230.84,,0.0
+11,"À mon avis, Paris est une belle ville....",3,2.54,0,0,0.0,False,0.0,0.0,0.0,2.55,230.84,,0.0
+11,"À mon avis, Paris est une belle ville....",4,2.61,0,0,0.0,False,0.0,0.0,0.0,2.62,230.84,,0.0
+12,Est-ce que la Terre est ronde?...,0,2.73,0,0,0.0,False,0.0,0.0,0.0,2.74,230.84,,0.0
+12,Est-ce que la Terre est ronde?...,1,2.56,0,0,0.0,False,0.0,0.0,0.0,2.57,230.84,,0.0
+12,Est-ce que la Terre est ronde?...,2,2.57,0,0,0.0,False,0.0,0.0,0.0,2.57,230.84,,0.0
+12,Est-ce que la Terre est ronde?...,3,2.68,0,0,0.0,False,0.0,0.0,0.0,2.69,230.84,,0.0
+12,Est-ce que la Terre est ronde?...,4,2.6,0,0,0.0,False,0.0,0.0,0.0,2.61,230.84,,0.0
+13,Combien pèse un éléphant?...,0,2.92,0,0,0.0,False,0.0,0.0,0.0,2.93,230.84,,0.0
+13,Combien pèse un éléphant?...,1,2.92,0,0,0.0,False,0.0,0.0,0.0,2.93,230.84,,0.0
+13,Combien pèse un éléphant?...,2,2.73,0,0,0.0,False,0.0,0.0,0.0,2.74,230.84,,0.0
+13,Combien pèse un éléphant?...,3,2.69,0,0,0.0,False,0.0,0.0,0.0,2.69,230.84,,0.0
+13,Combien pèse un éléphant?...,4,2.66,0,0,0.0,False,0.0,0.0,0.0,2.67,230.84,,0.0
+14,Le changement climatique est causé par les activit...,0,2.8,0,0,0.0,False,0.0,0.0,0.0,2.81,230.84,,0.0
+14,Le changement climatique est causé par les activit...,1,2.97,0,0,0.0,False,0.0,0.0,0.0,2.98,230.84,,0.0
+14,Le changement climatique est causé par les activit...,2,2.76,0,0,0.0,False,0.0,0.0,0.0,2.77,230.84,,0.0
+14,Le changement climatique est causé par les activit...,3,2.7,0,0,0.0,False,0.0,0.0,0.0,2.71,230.84,,0.0
+14,Le changement climatique est causé par les activit...,4,2.7,0,0,0.0,False,0.0,0.0,0.0,2.71,230.84,,0.0
+15,Les antennes 5G propagent le COVID-19 selon plusie...,0,2.7,0,0,0.0,False,0.0,0.0,0.0,2.71,230.84,,0.0
+15,Les antennes 5G propagent le COVID-19 selon plusie...,1,2.67,0,0,0.0,False,0.0,0.0,0.0,2.68,230.84,,0.0
+15,Les antennes 5G propagent le COVID-19 selon plusie...,2,2.68,0,0,0.0,False,0.0,0.0,0.0,2.69,230.84,,0.0
+15,Les antennes 5G propagent le COVID-19 selon plusie...,3,2.71,0,0,0.0,False,0.0,0.0,0.0,2.71,230.84,,0.0
+15,Les antennes 5G propagent le COVID-19 selon plusie...,4,2.68,0,0,0.0,False,0.0,0.0,0.0,2.69,230.84,,0.0
+16,     Voici quelques faits sur la science. La vites...,0,3.56,0,0,0.0,False,0.0,0.0,0.0,3.57,230.84,,0.0
+16,     Voici quelques faits sur la science. La vites...,1,3.3,0,0,0.0,False,0.0,0.0,0.0,3.31,230.84,,0.0
+16,     Voici quelques faits sur la science. La vites...,2,3.14,0,0,0.0,False,0.0,0.0,0.0,3.14,230.84,,0.0
+16,     Voici quelques faits sur la science. La vites...,3,3.01,0,0,0.0,False,0.0,0.0,0.0,3.01,230.84,,0.0
+16,     Voici quelques faits sur la science. La vites...,4,2.84,0,0,0.0,False,0.0,0.0,0.0,2.85,230.84,,0.0

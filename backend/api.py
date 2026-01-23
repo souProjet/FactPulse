@@ -117,10 +117,13 @@ async def lifespan(app: FastAPI):
         load_config()
         
         config = PipelineConfig(
-            claim_detection_timeout=200,
+            claim_detection_timeout=2000,  # MVP: temps pour charger le modèle au premier appel
             fast_lookup_timeout=500,
             rag_timeout=1500,
-            total_timeout=2000,
+            total_timeout=5000,  # MVP: timeout total augmenté
+            claim_confidence_threshold=0.4,  # MVP: seuil bas car modèle non entraîné
+            check_worthiness_threshold=0.3,  # MVP: seuil bas pour tester
+            fast_lookup_similarity_threshold=0.6,  # MVP: seuil bas pour matcher plus facilement
             enable_graceful_degradation=True,
             log_false_positives=True
         )

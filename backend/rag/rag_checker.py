@@ -342,7 +342,8 @@ class RAGChecker:
             max_new_tokens=self.max_new_tokens,
             temperature=0.1,  # Basse température pour déterminisme
             do_sample=False,  # Greedy decoding
-            pad_token_id=self._tokenizer.eos_token_id
+            pad_token_id=self._tokenizer.eos_token_id,
+            use_cache=False  # Fix pour compatibilité transformers récent
         )
         
         # Décoder seulement les nouveaux tokens

@@ -30,6 +30,20 @@ from .failsafe import (
 )
 
 
+# Traduction des verdicts en français
+VERDICT_TRANSLATIONS = {
+    "TRUE": "VRAI",
+    "FALSE": "FAUX",
+    "PARTIALLY_TRUE": "PARTIELLEMENT_VRAI",
+    "NOT_VERIFIABLE": "NON_VÉRIFIABLE",
+    "SKIPPED": "IGNORÉ"
+}
+
+def translate_verdict(verdict: str) -> str:
+    """Traduit un verdict en français."""
+    return VERDICT_TRANSLATIONS.get(verdict, verdict)
+
+
 @dataclass
 class PipelineConfig:
     """Configuration du pipeline."""
@@ -53,6 +67,9 @@ class PipelineConfig:
     # Performance
     max_claims_per_request: int = 10
     use_batch_processing: bool = True
+    
+    # Langue
+    translate_verdicts: bool = True  # Traduire les verdicts en français
 
 
 @dataclass
@@ -270,9 +287,13 @@ class FactCheckPipeline:
         
         # Fast lookup hit?
         if lookup_result and lookup_result.found:
+            verdict = lookup_result.fact.verdict.value
+            if self.config.translate_verdicts:
+                verdict = translate_verdict(verdict)
+            
             results.append({
                 "claim_text": text[:200],
-                "verdict": lookup_result.fact.verdict.value,
+                "verdict": verdict,
                 "confidence": lookup_result.similarity,
                 "explanation": f"Match avec fait connu: {lookup_result.fact.canonical_claim}",
                 "sources": [s.to_dict() for s in lookup_result.fact.sources],
@@ -375,15 +396,25 @@ class FactCheckPipeline:
         # ====================================================================
         timing["total_ms"] = round((time.perf_counter() - total_start) * 1000, 2)
         
+        # Traduire les verdicts en français si configuré
+        if self.config.translate_verdicts:
+            for result in results:
+                if "verdict" in result:
+                    result["verdict"] = translate_verdict(result["verdict"])
+        
         # Determine status
         status = "success"
         if errors:
             status = "partial" if results else "error"
         
+        # Compter les vérifiés (avec verdicts traduits ou non)
+        non_verified = ["SKIPPED", "NOT_VERIFIABLE", "IGNORÉ", "NON_VÉRIFIABLE"]
+        claims_verified_count = len([r for r in results if r.get("verdict") not in non_verified])
+        
         return PipelineResult(
             status=status,
             claims_detected=claims_detected,
-            claims_verified=len([r for r in results if r.get("verdict") not in ["SKIPPED", "NOT_VERIFIABLE"]]),
+            claims_verified=claims_verified_count,
             results=results,
             timing=timing,
             errors=errors,

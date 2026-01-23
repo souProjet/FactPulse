@@ -3,250 +3,1200 @@
     "fact_id": "fact_001",
     "fact_text": "La Terre a environ 4,5 milliards d'années.",
     "verdict": "TRUE",
-    "sources": [
-      {
-        "title": "NASA - Âge de la Terre",
-        "url": "https://www.nasa.gov/",
-        "snippet": "Les scientifiques ont calculé que la Terre a 4,54 milliards d'années, avec une marge d'erreur de 50 millions d'années."
-      }
-    ]
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Les scientifiques ont calculé que la Terre a 4,54 milliards d'années."}]
   },
   {
     "fact_id": "fact_002",
     "fact_text": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
     "verdict": "TRUE",
-    "sources": [
-      {
-        "title": "NIST - Propriétés de l'eau",
-        "url": "https://www.nist.gov/",
-        "snippet": "À pression atmosphérique standard (1 atm), l'eau bout à 100°C (212°F)."
-      }
-    ]
+    "sources": [{"title": "NIST", "url": "https://www.nist.gov/", "snippet": "À pression atmosphérique standard (1 atm), l'eau bout à 100°C."}]
   },
   {
     "fact_id": "fact_003",
     "fact_text": "La Terre est plate.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "NASA - La Terre",
-        "url": "https://www.nasa.gov/",
-        "snippet": "La Terre est un sphéroïde aplati, légèrement aplatie aux pôles et renflée à l'équateur."
-      }
-    ]
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "La Terre est un sphéroïde aplati."}]
   },
   {
     "fact_id": "fact_004",
     "fact_text": "Les vaccins causent l'autisme.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "CDC - Sécurité des vaccins",
-        "url": "https://www.cdc.gov/",
-        "snippet": "De nombreuses études ont examiné s'il existe un lien entre les vaccins et les troubles du spectre autistique. Aucune n'a trouvé un tel lien."
-      },
-      {
-        "title": "OMS - Vaccins",
-        "url": "https://www.who.int/",
-        "snippet": "Il n'y a aucune preuve d'un lien entre les vaccins et l'autisme."
-      }
-    ]
+    "sources": [{"title": "CDC", "url": "https://www.cdc.gov/", "snippet": "Aucune étude n'a trouvé de lien entre les vaccins et l'autisme."}]
   },
   {
     "fact_id": "fact_005",
-    "fact_text": "La vitesse de la lumière dans le vide est d'environ 299 792 kilomètres par seconde.",
+    "fact_text": "La vitesse de la lumière est d'environ 300 000 kilomètres par seconde.",
     "verdict": "TRUE",
-    "sources": [
-      {
-        "title": "NIST - Constantes physiques fondamentales",
-        "url": "https://www.nist.gov/",
-        "snippet": "La vitesse de la lumière dans le vide c = 299 792 458 m/s exactement."
-      }
-    ]
+    "sources": [{"title": "NIST", "url": "https://www.nist.gov/", "snippet": "La vitesse de la lumière c = 299 792 458 m/s."}]
   },
   {
     "fact_id": "fact_006",
     "fact_text": "Les humains n'utilisent que 10% de leur cerveau.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "Scientific American",
-        "url": "https://www.scientificamerican.com/",
-        "snippet": "L'imagerie cérébrale montre que toutes les zones du cerveau sont actives à différents moments. Nous utilisons pratiquement chaque partie du cerveau."
-      }
-    ]
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Nous utilisons pratiquement chaque partie du cerveau."}]
   },
   {
     "fact_id": "fact_007",
     "fact_text": "La Grande Muraille de Chine est visible depuis l'espace.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "NASA - Grande Muraille de Chine",
-        "url": "https://www.nasa.gov/",
-        "snippet": "La Grande Muraille est difficile à voir depuis l'orbite terrestre basse sans aide et n'est pas visible depuis la Lune."
-      }
-    ]
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "La Grande Muraille n'est pas visible depuis l'orbite sans aide."}]
   },
   {
     "fact_id": "fact_008",
     "fact_text": "Le changement climatique est causé par les activités humaines.",
     "verdict": "TRUE",
-    "sources": [
-      {
-        "title": "Rapport du GIEC",
-        "url": "https://www.ipcc.ch/",
-        "snippet": "Il est sans équivoque que l'influence humaine a réchauffé l'atmosphère, l'océan et les terres."
-      },
-      {
-        "title": "NASA Climat",
-        "url": "https://climate.nasa.gov/",
-        "snippet": "La tendance actuelle au réchauffement est sans équivoque le résultat de l'activité humaine depuis le milieu du 20e siècle."
-      }
-    ]
+    "sources": [{"title": "GIEC", "url": "https://www.ipcc.ch/", "snippet": "L'influence humaine a réchauffé l'atmosphère, l'océan et les terres."}]
   },
   {
     "fact_id": "fact_009",
     "fact_text": "Les antennes 5G propagent le COVID-19.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "OMS - Mythes sur le coronavirus",
-        "url": "https://www.who.int/",
-        "snippet": "Les virus ne peuvent pas voyager sur les ondes radio/réseaux mobiles. Le COVID-19 se propage dans de nombreux pays qui n'ont pas la 5G."
-      }
-    ]
+    "sources": [{"title": "OMS", "url": "https://www.who.int/", "snippet": "Les virus ne peuvent pas voyager sur les ondes radio."}]
   },
   {
     "fact_id": "fact_010",
     "fact_text": "La forêt amazonienne produit 20% de l'oxygène de la Terre.",
     "verdict": "PARTIALLY_TRUE",
-    "sources": [
-      {
-        "title": "National Geographic",
-        "url": "https://www.nationalgeographic.com/",
-        "snippet": "Bien que l'Amazonie soit vitale pour l'absorption du carbone, elle consomme presque tout l'oxygène qu'elle produit. Le phytoplancton océanique produit la majeure partie de l'oxygène."
-      }
-    ]
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "L'Amazonie consomme presque tout l'oxygène qu'elle produit."}]
   },
   {
     "fact_id": "fact_011",
     "fact_text": "La Tour Eiffel mesure 330 mètres de haut.",
     "verdict": "TRUE",
-    "sources": [
-      {
-        "title": "Site officiel Tour Eiffel",
-        "url": "https://www.toureiffel.paris/",
-        "snippet": "La Tour Eiffel culmine à 330 mètres avec ses antennes, 324 mètres sans."
-      }
-    ]
+    "sources": [{"title": "Tour Eiffel", "url": "https://www.toureiffel.paris/", "snippet": "La Tour Eiffel culmine à 330 mètres avec ses antennes."}]
   },
   {
     "fact_id": "fact_012",
     "fact_text": "Napoléon Bonaparte était petit.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "Britannica - Napoléon",
-        "url": "https://www.britannica.com/",
-        "snippet": "Napoléon mesurait environ 1,70 m, ce qui était dans la moyenne pour un Français de son époque. La confusion vient des différences entre mesures anglaises et françaises."
-      }
-    ]
+    "sources": [{"title": "Britannica", "url": "https://www.britannica.com/", "snippet": "Napoléon mesurait 1,70 m, dans la moyenne de son époque."}]
   },
   {
     "fact_id": "fact_013",
     "fact_text": "Le sang désoxygéné est bleu.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "Scientific American",
-        "url": "https://www.scientificamerican.com/",
-        "snippet": "Le sang est toujours rouge. Le sang désoxygéné est rouge foncé, tandis que le sang oxygéné est rouge vif. Les veines apparaissent bleues à cause de la façon dont la lumière pénètre la peau."
-      }
-    ]
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Le sang est toujours rouge, même désoxygéné."}]
   },
   {
     "fact_id": "fact_014",
     "fact_text": "Les chauves-souris sont aveugles.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "National Geographic",
-        "url": "https://www.nationalgeographic.com/",
-        "snippet": "Les chauves-souris ne sont pas aveugles. La plupart ont une bonne vision et utilisent l'écholocation en complément, pas en remplacement, de leur vue."
-      }
-    ]
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "Les chauves-souris ont une bonne vision."}]
   },
   {
     "fact_id": "fact_015",
     "fact_text": "L'alcool réchauffe le corps.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "Mayo Clinic",
-        "url": "https://www.mayoclinic.org/",
-        "snippet": "L'alcool dilate les vaisseaux sanguins, donnant une sensation de chaleur, mais fait en réalité baisser la température corporelle centrale."
-      }
-    ]
+    "sources": [{"title": "Mayo Clinic", "url": "https://www.mayoclinic.org/", "snippet": "L'alcool fait baisser la température corporelle centrale."}]
   },
   {
     "fact_id": "fact_016",
     "fact_text": "La Lune influence les naissances.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "UCLA Health",
-        "url": "https://www.uclahealth.org/",
-        "snippet": "Plusieurs études à grande échelle n'ont trouvé aucune corrélation entre les phases de la Lune et le taux de naissances."
-      }
-    ]
+    "sources": [{"title": "UCLA Health", "url": "https://www.uclahealth.org/", "snippet": "Aucune corrélation entre phases lunaires et naissances."}]
   },
   {
     "fact_id": "fact_017",
     "fact_text": "Le sucre rend les enfants hyperactifs.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "Yale Scientific",
-        "url": "https://www.yalescientific.org/",
-        "snippet": "De nombreuses études contrôlées n'ont montré aucun lien entre la consommation de sucre et l'hyperactivité chez les enfants."
-      }
-    ]
+    "sources": [{"title": "Yale Scientific", "url": "https://www.yalescientific.org/", "snippet": "Aucun lien prouvé entre sucre et hyperactivité."}]
   },
   {
     "fact_id": "fact_018",
     "fact_text": "La France est le pays le plus visité au monde.",
     "verdict": "TRUE",
-    "sources": [
-      {
-        "title": "Organisation Mondiale du Tourisme",
-        "url": "https://www.unwto.org/",
-        "snippet": "La France reste la première destination touristique mondiale avec près de 90 millions de visiteurs internationaux par an."
-      }
-    ]
+    "sources": [{"title": "UNWTO", "url": "https://www.unwto.org/", "snippet": "La France accueille près de 90 millions de visiteurs par an."}]
   },
   {
     "fact_id": "fact_019",
     "fact_text": "Les éoliennes tuent plus d'oiseaux que les chats.",
     "verdict": "FALSE",
-    "sources": [
-      {
-        "title": "US Fish and Wildlife Service",
-        "url": "https://www.fws.gov/",
-        "snippet": "Les chats domestiques tuent environ 2,4 milliards d'oiseaux par an aux États-Unis, contre environ 234 000 pour les éoliennes."
-      }
-    ]
+    "sources": [{"title": "US Fish and Wildlife", "url": "https://www.fws.gov/", "snippet": "Les chats tuent 2,4 milliards d'oiseaux/an vs 234 000 pour les éoliennes."}]
   },
   {
     "fact_id": "fact_020",
     "fact_text": "Le cerveau humain consomme 20% de l'énergie du corps.",
     "verdict": "TRUE",
-    "sources": [
-      {
-        "title": "Scientific American",
-        "url": "https://www.scientificamerican.com/",
-        "snippet": "Bien qu'il ne représente que 2% de la masse corporelle, le cerveau consomme environ 20% de l'énergie métabolique au repos."
-      }
-    ]
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Le cerveau consomme 20% de l'énergie métabolique au repos."}]
+  },
+  {
+    "fact_id": "fact_021",
+    "fact_text": "L'homme descend du singe.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Smithsonian", "url": "https://humanorigins.si.edu/", "snippet": "Humains et singes partagent un ancêtre commun, mais l'homme ne descend pas des singes actuels."}]
+  },
+  {
+    "fact_id": "fact_022",
+    "fact_text": "Les poissons rouges ont une mémoire de 3 secondes.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Plymouth University", "url": "https://www.plymouth.ac.uk/", "snippet": "Les poissons rouges peuvent se souvenir de choses pendant des mois."}]
+  },
+  {
+    "fact_id": "fact_023",
+    "fact_text": "Les caméléons changent de couleur pour se camoufler.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "Ils changent principalement pour communiquer et réguler leur température."}]
+  },
+  {
+    "fact_id": "fact_024",
+    "fact_text": "On perd la majorité de sa chaleur par la tête.",
+    "verdict": "FALSE",
+    "sources": [{"title": "BMJ", "url": "https://www.bmj.com/", "snippet": "La tête perd autant de chaleur que les autres parties du corps proportionnellement."}]
+  },
+  {
+    "fact_id": "fact_025",
+    "fact_text": "Les ongles et les cheveux continuent de pousser après la mort.",
+    "verdict": "FALSE",
+    "sources": [{"title": "BBC Science", "url": "https://www.bbc.com/", "snippet": "La peau se rétracte, donnant l'illusion de croissance."}]
+  },
+  {
+    "fact_id": "fact_026",
+    "fact_text": "Einstein était mauvais en mathématiques.",
+    "verdict": "FALSE",
+    "sources": [{"title": "APS Physics", "url": "https://www.aps.org/", "snippet": "Einstein excellait en mathématiques dès son jeune âge."}]
+  },
+  {
+    "fact_id": "fact_027",
+    "fact_text": "Les Vikings portaient des casques à cornes.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.smithsonianmag.com/", "snippet": "Aucune preuve archéologique de casques à cornes vikings."}]
+  },
+  {
+    "fact_id": "fact_028",
+    "fact_text": "Christophe Colomb a découvert l'Amérique.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "History", "url": "https://www.history.com/", "snippet": "Il a atteint les Amériques pour les Européens, mais des Vikings et peuples autochtones y étaient avant."}]
+  },
+  {
+    "fact_id": "fact_029",
+    "fact_text": "La vitamine C prévient le rhume.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Cochrane", "url": "https://www.cochrane.org/", "snippet": "La vitamine C ne prévient pas le rhume chez la plupart des gens."}]
+  },
+  {
+    "fact_id": "fact_030",
+    "fact_text": "Manger des carottes améliore la vue.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Harvard Health", "url": "https://www.health.harvard.edu/", "snippet": "Les carottes contiennent de la vitamine A bonne pour les yeux, mais n'améliorent pas la vision normale."}]
+  },
+  {
+    "fact_id": "fact_031",
+    "fact_text": "Il faut attendre 24h avant de signaler une disparition.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Police Nationale", "url": "https://www.police-nationale.interieur.gouv.fr/", "snippet": "On peut signaler une disparition immédiatement."}]
+  },
+  {
+    "fact_id": "fact_032",
+    "fact_text": "Les requins n'attrapent pas le cancer.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Les requins peuvent développer des cancers."}]
+  },
+  {
+    "fact_id": "fact_033",
+    "fact_text": "Les tournesols suivent le soleil toute la journée.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Science", "url": "https://www.science.org/", "snippet": "Seuls les jeunes tournesols suivent le soleil; les matures font face à l'est."}]
+  },
+  {
+    "fact_id": "fact_034",
+    "fact_text": "L'eau des toilettes tourne dans le sens inverse dans l'hémisphère sud.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "L'effet Coriolis est trop faible pour affecter l'eau des toilettes."}]
+  },
+  {
+    "fact_id": "fact_035",
+    "fact_text": "Les éclairs ne frappent jamais deux fois au même endroit.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NOAA", "url": "https://www.noaa.gov/", "snippet": "L'Empire State Building est frappé environ 20 fois par an."}]
+  },
+  {
+    "fact_id": "fact_036",
+    "fact_text": "Le Sahara est le plus grand désert du monde.",
+    "verdict": "FALSE",
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "L'Antarctique est techniquement le plus grand désert."}]
+  },
+  {
+    "fact_id": "fact_037",
+    "fact_text": "Les diamants sont formés à partir de charbon compressé.",
+    "verdict": "FALSE",
+    "sources": [{"title": "GIA", "url": "https://www.gia.edu/", "snippet": "Les diamants se forment à partir de carbone profond, pas de charbon végétal."}]
+  },
+  {
+    "fact_id": "fact_038",
+    "fact_text": "Les dauphins sont des poissons.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NOAA", "url": "https://www.noaa.gov/", "snippet": "Les dauphins sont des mammifères marins."}]
+  },
+  {
+    "fact_id": "fact_039",
+    "fact_text": "Le Mont Everest est la plus haute montagne du monde.",
+    "verdict": "TRUE",
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "L'Everest culmine à 8 849 mètres au-dessus du niveau de la mer."}]
+  },
+  {
+    "fact_id": "fact_040",
+    "fact_text": "Le Soleil est une étoile.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Le Soleil est une étoile naine jaune de type G."}]
+  },
+  {
+    "fact_id": "fact_041",
+    "fact_text": "Les humains ont 5 sens.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Harvard Medicine", "url": "https://hms.harvard.edu/", "snippet": "Nous avons au moins 9 sens incluant l'équilibre, la proprioception, etc."}]
+  },
+  {
+    "fact_id": "fact_042",
+    "fact_text": "L'ADN est une double hélice.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Nature", "url": "https://www.nature.com/", "snippet": "Watson et Crick ont découvert la structure en double hélice de l'ADN en 1953."}]
+  },
+  {
+    "fact_id": "fact_043",
+    "fact_text": "Les antibiotiques tuent les virus.",
+    "verdict": "FALSE",
+    "sources": [{"title": "CDC", "url": "https://www.cdc.gov/", "snippet": "Les antibiotiques ne fonctionnent que contre les bactéries, pas les virus."}]
+  },
+  {
+    "fact_id": "fact_044",
+    "fact_text": "La Lune a une face cachée toujours sombre.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "La face cachée reçoit autant de lumière que la face visible."}]
+  },
+  {
+    "fact_id": "fact_045",
+    "fact_text": "Les trous noirs aspirent tout autour d'eux.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Les trous noirs ont une gravité intense mais n'aspirent pas tout comme des aspirateurs."}]
+  },
+  {
+    "fact_id": "fact_046",
+    "fact_text": "Le verre est un liquide qui coule lentement.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Le verre est un solide amorphe, pas un liquide."}]
+  },
+  {
+    "fact_id": "fact_047",
+    "fact_text": "Les avions jettent leurs déchets en vol.",
+    "verdict": "FALSE",
+    "sources": [{"title": "FAA", "url": "https://www.faa.gov/", "snippet": "Les toilettes d'avion stockent les déchets jusqu'à l'atterrissage."}]
+  },
+  {
+    "fact_id": "fact_048",
+    "fact_text": "Saturne flotterait sur l'eau.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "La densité de Saturne est inférieure à celle de l'eau."}]
+  },
+  {
+    "fact_id": "fact_049",
+    "fact_text": "Le cœur humain bat environ 100 000 fois par jour.",
+    "verdict": "TRUE",
+    "sources": [{"title": "American Heart Association", "url": "https://www.heart.org/", "snippet": "Le cœur bat environ 100 000 fois par jour."}]
+  },
+  {
+    "fact_id": "fact_050",
+    "fact_text": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Harvard Egyptology", "url": "https://www.harvard.edu/", "snippet": "Les pyramides ont été construites par des ouvriers payés."}]
+  },
+  {
+    "fact_id": "fact_051",
+    "fact_text": "L'oxygène est le gaz le plus abondant dans l'atmosphère.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NOAA", "url": "https://www.noaa.gov/", "snippet": "L'azote compose 78% de l'atmosphère, l'oxygène 21%."}]
+  },
+  {
+    "fact_id": "fact_052",
+    "fact_text": "Les bananes poussent sur des arbres.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Botanical Garden", "url": "https://www.bgci.org/", "snippet": "Les bananiers sont des herbes géantes, pas des arbres."}]
+  },
+  {
+    "fact_id": "fact_053",
+    "fact_text": "Mozart a composé sa première symphonie à 8 ans.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Mozarteum", "url": "https://mozarteum.at/", "snippet": "Mozart a composé sa première symphonie en 1764, à l'âge de 8 ans."}]
+  },
+  {
+    "fact_id": "fact_054",
+    "fact_text": "Les OGM sont dangereux pour la santé.",
+    "verdict": "FALSE",
+    "sources": [{"title": "WHO", "url": "https://www.who.int/", "snippet": "Aucune preuve que les OGM actuellement sur le marché présentent un risque pour la santé."}]
+  },
+  {
+    "fact_id": "fact_055",
+    "fact_text": "La muraille de Chine est la seule structure visible depuis la Lune.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Aucune structure humaine n'est visible depuis la Lune à l'œil nu."}]
+  },
+  {
+    "fact_id": "fact_056",
+    "fact_text": "Les araignées sont des insectes.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.si.edu/", "snippet": "Les araignées sont des arachnides, pas des insectes (8 pattes vs 6)."}]
+  },
+  {
+    "fact_id": "fact_057",
+    "fact_text": "L'Everest grandit chaque année.",
+    "verdict": "TRUE",
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "L'Everest grandit d'environ 4mm par an due à la tectonique des plaques."}]
+  },
+  {
+    "fact_id": "fact_058",
+    "fact_text": "Les manchots vivent au pôle Nord.",
+    "verdict": "FALSE",
+    "sources": [{"title": "WWF", "url": "https://www.wwf.org/", "snippet": "Les manchots vivent exclusivement dans l'hémisphère sud."}]
+  },
+  {
+    "fact_id": "fact_059",
+    "fact_text": "Les ours polaires vivent en Antarctique.",
+    "verdict": "FALSE",
+    "sources": [{"title": "WWF", "url": "https://www.wwf.org/", "snippet": "Les ours polaires vivent uniquement en Arctique."}]
+  },
+  {
+    "fact_id": "fact_060",
+    "fact_text": "Le plastique met 1000 ans à se décomposer.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "EPA", "url": "https://www.epa.gov/", "snippet": "Selon le type, le plastique peut mettre de 20 à 500+ ans à se décomposer."}]
+  },
+  {
+    "fact_id": "fact_061",
+    "fact_text": "Le corps humain contient assez de fer pour faire un clou.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Royal Society of Chemistry", "url": "https://www.rsc.org/", "snippet": "Le corps contient environ 4g de fer, assez pour un petit clou."}]
+  },
+  {
+    "fact_id": "fact_062",
+    "fact_text": "Les toilettes japonaises chauffent les sièges.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Japan Times", "url": "https://www.japantimes.co.jp/", "snippet": "Les toilettes high-tech japonaises incluent des sièges chauffants."}]
+  },
+  {
+    "fact_id": "fact_063",
+    "fact_text": "L'île de Pâques appartient au Chili.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Encyclopédie Britannica", "url": "https://www.britannica.com/", "snippet": "L'île de Pâques est un territoire chilien depuis 1888."}]
+  },
+  {
+    "fact_id": "fact_064",
+    "fact_text": "Boire 8 verres d'eau par jour est nécessaire.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Mayo Clinic", "url": "https://www.mayoclinic.org/", "snippet": "Les besoins varient selon l'individu; il n'y a pas de règle universelle."}]
+  },
+  {
+    "fact_id": "fact_065",
+    "fact_text": "Les téléphones portables causent le cancer du cerveau.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NIH", "url": "https://www.nih.gov/", "snippet": "Aucune preuve concluante que les téléphones causent le cancer."}]
+  },
+  {
+    "fact_id": "fact_066",
+    "fact_text": "Le muscle le plus fort du corps est la langue.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Library of Congress", "url": "https://www.loc.gov/", "snippet": "La langue est un groupe de muscles; le masséter et les quadriceps sont plus forts."}]
+  },
+  {
+    "fact_id": "fact_067",
+    "fact_text": "Craquer ses doigts cause l'arthrite.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Harvard Health", "url": "https://www.health.harvard.edu/", "snippet": "Aucune étude n'a prouvé de lien entre craquer ses doigts et l'arthrite."}]
+  },
+  {
+    "fact_id": "fact_068",
+    "fact_text": "Les chiens voient en noir et blanc.",
+    "verdict": "FALSE",
+    "sources": [{"title": "American Kennel Club", "url": "https://www.akc.org/", "snippet": "Les chiens voient en bleu et jaune, pas en noir et blanc."}]
+  },
+  {
+    "fact_id": "fact_069",
+    "fact_text": "Une pièce qui tombe du haut d'un gratte-ciel peut tuer.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Physics Today", "url": "https://physicstoday.scitation.org/", "snippet": "La vitesse terminale d'une pièce est trop faible pour être mortelle."}]
+  },
+  {
+    "fact_id": "fact_070",
+    "fact_text": "Les microondes détruisent les nutriments des aliments.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Harvard Health", "url": "https://www.health.harvard.edu/", "snippet": "La cuisson détruit certains nutriments, mais les microondes les préservent souvent mieux que d'autres méthodes."}]
+  },
+  {
+    "fact_id": "fact_071",
+    "fact_text": "Bitcoin consomme autant d'électricité qu'un pays.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Cambridge", "url": "https://ccaf.io/", "snippet": "Le réseau Bitcoin consomme autant d'électricité que certains pays comme l'Argentine."}]
+  },
+  {
+    "fact_id": "fact_072",
+    "fact_text": "L'homéopathie est scientifiquement prouvée.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NHMRC", "url": "https://www.nhmrc.gov.au/", "snippet": "Aucune preuve que l'homéopathie est efficace au-delà de l'effet placebo."}]
+  },
+  {
+    "fact_id": "fact_073",
+    "fact_text": "Le café retarde la croissance des enfants.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Johns Hopkins", "url": "https://www.hopkinsmedicine.org/", "snippet": "Aucune preuve que le café affecte la croissance."}]
+  },
+  {
+    "fact_id": "fact_074",
+    "fact_text": "Le miel ne périme jamais.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.smithsonianmag.com/", "snippet": "Le miel peut rester comestible pendant des millénaires s'il est bien conservé."}]
+  },
+  {
+    "fact_id": "fact_075",
+    "fact_text": "Le Japon a plus de distributeurs automatiques par habitant que tout autre pays.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Japan Vending Machine Association", "url": "https://www.jvma.or.jp/", "snippet": "Le Japon compte environ 1 distributeur pour 23 personnes."}]
+  },
+  {
+    "fact_id": "fact_076",
+    "fact_text": "Les crocodiles peuvent vivre plus de 100 ans.",
+    "verdict": "TRUE",
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "Certains crocodiles peuvent vivre jusqu'à 70-100 ans."}]
+  },
+  {
+    "fact_id": "fact_077",
+    "fact_text": "Les cactus ne stockent pas d'eau.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Desert Botanical Garden", "url": "https://dbg.org/", "snippet": "Les cactus stockent de grandes quantités d'eau dans leurs tiges."}]
+  },
+  {
+    "fact_id": "fact_078",
+    "fact_text": "La Russie est le plus grand pays du monde.",
+    "verdict": "TRUE",
+    "sources": [{"title": "World Bank", "url": "https://www.worldbank.org/", "snippet": "La Russie couvre 17,1 millions de km², le plus grand pays."}]
+  },
+  {
+    "fact_id": "fact_079",
+    "fact_text": "L'Inde a la plus grande population mondiale.",
+    "verdict": "TRUE",
+    "sources": [{"title": "ONU", "url": "https://www.un.org/", "snippet": "L'Inde a dépassé la Chine en 2023 avec plus de 1,4 milliard d'habitants."}]
+  },
+  {
+    "fact_id": "fact_080",
+    "fact_text": "La Chine a la plus grande économie du monde.",
+    "verdict": "FALSE",
+    "sources": [{"title": "FMI", "url": "https://www.imf.org/", "snippet": "Les États-Unis ont le plus grand PIB nominal mondial."}]
+  },
+  {
+    "fact_id": "fact_081",
+    "fact_text": "Les avions contribuent énormément au changement climatique.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "IATA", "url": "https://www.iata.org/", "snippet": "L'aviation représente environ 2-3% des émissions mondiales de CO2."}]
+  },
+  {
+    "fact_id": "fact_082",
+    "fact_text": "Les voitures électriques n'émettent pas de CO2.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "EPA", "url": "https://www.epa.gov/", "snippet": "Elles n'émettent pas directement, mais la production d'électricité peut émettre du CO2."}]
+  },
+  {
+    "fact_id": "fact_083",
+    "fact_text": "Le pétrole va s'épuiser dans 50 ans.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "BP", "url": "https://www.bp.com/", "snippet": "Les réserves prouvées dureraient environ 50 ans au rythme actuel, mais de nouvelles réserves sont découvertes."}]
+  },
+  {
+    "fact_id": "fact_084",
+    "fact_text": "Les pandas ne mangent que du bambou.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "WWF", "url": "https://www.wwf.org/", "snippet": "Le bambou représente 99% de leur alimentation, mais ils mangent occasionnellement de petits animaux."}]
+  },
+  {
+    "fact_id": "fact_085",
+    "fact_text": "Les abeilles meurent après avoir piqué.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.si.edu/", "snippet": "Seules les abeilles mellifères meurent après avoir piqué des mammifères."}]
+  },
+  {
+    "fact_id": "fact_086",
+    "fact_text": "Le gluten est mauvais pour tout le monde.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Harvard Health", "url": "https://www.health.harvard.edu/", "snippet": "Le gluten n'est nocif que pour les personnes atteintes de maladie cœliaque ou sensibilité au gluten."}]
+  },
+  {
+    "fact_id": "fact_087",
+    "fact_text": "Les détoxes permettent de nettoyer l'organisme.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NHS", "url": "https://www.nhs.uk/", "snippet": "Le corps se détoxifie naturellement via le foie et les reins; les régimes détox n'ont pas de base scientifique."}]
+  },
+  {
+    "fact_id": "fact_088",
+    "fact_text": "L'intelligence artificielle va remplacer tous les emplois.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "MIT", "url": "https://www.mit.edu/", "snippet": "L'IA transformera de nombreux emplois mais en créera aussi de nouveaux."}]
+  },
+  {
+    "fact_id": "fact_089",
+    "fact_text": "Les écrans abîment les yeux des enfants.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "AAP", "url": "https://www.aap.org/", "snippet": "L'excès d'écrans peut causer fatigue oculaire et myopie, mais pas de dommages permanents prouvés."}]
+  },
+  {
+    "fact_id": "fact_090",
+    "fact_text": "Le wifi est dangereux pour la santé.",
+    "verdict": "FALSE",
+    "sources": [{"title": "WHO", "url": "https://www.who.int/", "snippet": "Les ondes wifi sont bien en dessous des niveaux considérés comme dangereux."}]
+  },
+  {
+    "fact_id": "fact_091",
+    "fact_text": "Mars a de l'eau.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Mars possède de la glace d'eau aux pôles et probablement de l'eau liquide souterraine."}]
+  },
+  {
+    "fact_id": "fact_092",
+    "fact_text": "Pluton est une planète.",
+    "verdict": "FALSE",
+    "sources": [{"title": "IAU", "url": "https://www.iau.org/", "snippet": "Pluton a été reclassifié comme planète naine en 2006."}]
+  },
+  {
+    "fact_id": "fact_093",
+    "fact_text": "Il y a plus d'arbres sur Terre que d'étoiles dans la Voie lactée.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Nature", "url": "https://www.nature.com/", "snippet": "La Terre a ~3 trillions d'arbres vs ~100-400 milliards d'étoiles dans la Voie lactée."}]
+  },
+  {
+    "fact_id": "fact_094",
+    "fact_text": "Le cannabis est sans danger.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NIH", "url": "https://www.nih.gov/", "snippet": "Le cannabis peut avoir des effets négatifs sur la santé mentale et cognitive, surtout chez les jeunes."}]
+  },
+  {
+    "fact_id": "fact_095",
+    "fact_text": "Le sel fait monter la tension artérielle.",
+    "verdict": "TRUE",
+    "sources": [{"title": "American Heart Association", "url": "https://www.heart.org/", "snippet": "L'excès de sel augmente la pression artérielle."}]
+  },
+  {
+    "fact_id": "fact_096",
+    "fact_text": "Le chocolat est toxique pour les chiens.",
+    "verdict": "TRUE",
+    "sources": [{"title": "ASPCA", "url": "https://www.aspca.org/", "snippet": "La théobromine du chocolat est toxique pour les chiens."}]
+  },
+  {
+    "fact_id": "fact_097",
+    "fact_text": "Les moustiques sont attirés par certains groupes sanguins.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Journal of Medical Entomology", "url": "https://academic.oup.com/jme", "snippet": "Les moustiques préfèrent le groupe sanguin O."}]
+  },
+  {
+    "fact_id": "fact_098",
+    "fact_text": "La population mondiale atteindra 10 milliards d'ici 2050.",
+    "verdict": "TRUE",
+    "sources": [{"title": "ONU", "url": "https://www.un.org/", "snippet": "Les projections prévoient 9,7 milliards d'habitants d'ici 2050."}]
+  },
+  {
+    "fact_id": "fact_099",
+    "fact_text": "Internet consomme 10% de l'électricité mondiale.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "IEA", "url": "https://www.iea.org/", "snippet": "Les centres de données consomment environ 1-2% de l'électricité mondiale; l'ensemble du numérique environ 4%."}]
+  },
+  {
+    "fact_id": "fact_100",
+    "fact_text": "Le Groenland appartient au Danemark.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Government of Greenland", "url": "https://naalakkersuisut.gl/", "snippet": "Le Groenland est un territoire autonome du Royaume du Danemark."}]
+  },
+  {
+    "fact_id": "fact_101",
+    "fact_text": "La peine de mort existe encore aux États-Unis.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Death Penalty Information Center", "url": "https://deathpenaltyinfo.org/", "snippet": "27 États américains maintiennent la peine de mort."}]
+  },
+  {
+    "fact_id": "fact_102",
+    "fact_text": "Le français est la langue officielle dans plus de 29 pays.",
+    "verdict": "TRUE",
+    "sources": [{"title": "OIF", "url": "https://www.francophonie.org/", "snippet": "Le français est langue officielle dans 29 pays."}]
+  },
+  {
+    "fact_id": "fact_103",
+    "fact_text": "Les antibiotiques dans la viande sont dangereux.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "WHO", "url": "https://www.who.int/", "snippet": "L'usage excessif d'antibiotiques dans l'élevage contribue à la résistance antimicrobienne."}]
+  },
+  {
+    "fact_id": "fact_104",
+    "fact_text": "Le café est bon pour la santé.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Harvard Health", "url": "https://www.health.harvard.edu/", "snippet": "Avec modération, le café a des bénéfices pour la santé, mais pas pour tout le monde."}]
+  },
+  {
+    "fact_id": "fact_105",
+    "fact_text": "Le sommeil est essentiel pour la mémoire.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Nature", "url": "https://www.nature.com/", "snippet": "Le sommeil joue un rôle crucial dans la consolidation de la mémoire."}]
+  },
+  {
+    "fact_id": "fact_106",
+    "fact_text": "Les centrales nucléaires émettent du CO2.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "IAEA", "url": "https://www.iaea.org/", "snippet": "Les centrales n'émettent pas de CO2 en fonctionnement, mais le cycle de vie complet émet peu de CO2."}]
+  },
+  {
+    "fact_id": "fact_107",
+    "fact_text": "La Terre se réchauffe de plus de 1°C depuis l'ère préindustrielle.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://climate.nasa.gov/", "snippet": "La température moyenne a augmenté de 1,1°C depuis 1880."}]
+  },
+  {
+    "fact_id": "fact_108",
+    "fact_text": "Les glaciers fondent à un rythme alarmant.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NSIDC", "url": "https://nsidc.org/", "snippet": "La fonte des glaciers s'accélère depuis les années 1990."}]
+  },
+  {
+    "fact_id": "fact_109",
+    "fact_text": "Le niveau des océans monte chaque année.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://sealevel.nasa.gov/", "snippet": "Le niveau des océans monte d'environ 3,4 mm par an."}]
+  },
+  {
+    "fact_id": "fact_110",
+    "fact_text": "Les insectes disparaissent à grande vitesse.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Science", "url": "https://www.science.org/", "snippet": "Les populations d'insectes ont chuté de 75% en 27 ans dans certaines régions."}]
+  },
+  {
+    "fact_id": "fact_111",
+    "fact_text": "Les humains ont 99% d'ADN en commun avec les chimpanzés.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Nature", "url": "https://www.nature.com/", "snippet": "Humains et chimpanzés partagent environ 98,8% de leur ADN."}]
+  },
+  {
+    "fact_id": "fact_112",
+    "fact_text": "Le cerveau génère assez d'électricité pour allumer une ampoule.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Le cerveau produit environ 10-23 watts, assez pour une LED faible."}]
+  },
+  {
+    "fact_id": "fact_113",
+    "fact_text": "On peut voir la courbure de la Terre depuis un avion.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Physics Today", "url": "https://physicstoday.scitation.org/", "snippet": "Visible à haute altitude (10+ km) par temps clair, mais subtil."}]
+  },
+  {
+    "fact_id": "fact_114",
+    "fact_text": "Le vaccin contre la grippe doit être renouvelé chaque année.",
+    "verdict": "TRUE",
+    "sources": [{"title": "CDC", "url": "https://www.cdc.gov/", "snippet": "Le virus de la grippe mute, nécessitant un nouveau vaccin chaque année."}]
+  },
+  {
+    "fact_id": "fact_115",
+    "fact_text": "Le stress cause des cheveux blancs.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Harvard", "url": "https://news.harvard.edu/", "snippet": "Des études récentes confirment que le stress peut causer le grisonnement des cheveux."}]
+  },
+  {
+    "fact_id": "fact_116",
+    "fact_text": "Les humains avalent 8 araignées par an dans leur sommeil.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Cette statistique est un mythe sans fondement scientifique."}]
+  },
+  {
+    "fact_id": "fact_117",
+    "fact_text": "L'énergie solaire est maintenant moins chère que le charbon.",
+    "verdict": "TRUE",
+    "sources": [{"title": "IRENA", "url": "https://www.irena.org/", "snippet": "Le coût du solaire a chuté de 89% en 10 ans, devenant souvent moins cher que le charbon."}]
+  },
+  {
+    "fact_id": "fact_118",
+    "fact_text": "La blockchain est totalement sécurisée.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "MIT Technology Review", "url": "https://www.technologyreview.com/", "snippet": "La blockchain est sécurisée mais pas infaillible; des attaques sont possibles."}]
+  },
+  {
+    "fact_id": "fact_119",
+    "fact_text": "L'alcool tue les cellules du cerveau.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "NIH", "url": "https://www.nih.gov/", "snippet": "L'alcool n'tue pas directement les neurones mais endommage les connexions entre eux."}]
+  },
+  {
+    "fact_id": "fact_120",
+    "fact_text": "La dépression est juste de la tristesse.",
+    "verdict": "FALSE",
+    "sources": [{"title": "WHO", "url": "https://www.who.int/", "snippet": "La dépression est un trouble médical complexe impliquant facteurs biologiques, psychologiques et sociaux."}]
+  },
+  {
+    "fact_id": "fact_121",
+    "fact_text": "Les gauchers sont plus créatifs.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Psychology Today", "url": "https://www.psychologytoday.com/", "snippet": "Quelques études suggèrent des différences, mais les résultats sont inconsistants."}]
+  },
+  {
+    "fact_id": "fact_122",
+    "fact_text": "Le CO2 est le principal gaz à effet de serre.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "NOAA", "url": "https://www.noaa.gov/", "snippet": "La vapeur d'eau est le principal GES, mais le CO2 est le principal émis par les humains."}]
+  },
+  {
+    "fact_id": "fact_123",
+    "fact_text": "Les océans absorbent 30% du CO2 émis.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NOAA", "url": "https://www.noaa.gov/", "snippet": "Les océans absorbent environ 25-30% des émissions de CO2 humaines."}]
+  },
+  {
+    "fact_id": "fact_124",
+    "fact_text": "Le Titanic a été déclaré insubmersible.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "History", "url": "https://www.history.com/", "snippet": "Ce n'était pas une déclaration officielle mais une perception populaire de l'époque."}]
+  },
+  {
+    "fact_id": "fact_125",
+    "fact_text": "Les pyramides étaient blanches à l'origine.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.smithsonianmag.com/", "snippet": "Les pyramides étaient couvertes de calcaire blanc poli qui a été pillé ou érodé."}]
+  },
+  {
+    "fact_id": "fact_126",
+    "fact_text": "Le réchauffement climatique causera plus de réfugiés que les guerres.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "ONU", "url": "https://www.un.org/", "snippet": "Les projections suggèrent des millions de déplacés climatiques, mais les chiffres sont incertains."}]
+  },
+  {
+    "fact_id": "fact_127",
+    "fact_text": "Les smartphones contiennent des terres rares.",
+    "verdict": "TRUE",
+    "sources": [{"title": "USGS", "url": "https://www.usgs.gov/", "snippet": "Les smartphones contiennent plusieurs éléments de terres rares."}]
+  },
+  {
+    "fact_id": "fact_128",
+    "fact_text": "La Lune s'éloigne de la Terre.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "La Lune s'éloigne d'environ 3,8 cm par an."}]
+  },
+  {
+    "fact_id": "fact_129",
+    "fact_text": "Le Soleil est à mi-vie.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Le Soleil a environ 4,6 milliards d'années et durera encore 5 milliards d'années."}]
+  },
+  {
+    "fact_id": "fact_130",
+    "fact_text": "Les abeilles peuvent reconnaître les visages humains.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Journal of Experimental Biology", "url": "https://journals.biologists.com/jeb", "snippet": "Des études montrent que les abeilles peuvent apprendre à reconnaître des visages humains."}]
+  },
+  {
+    "fact_id": "fact_131",
+    "fact_text": "Le plus long vol sans escale dure plus de 18 heures.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Singapore Airlines", "url": "https://www.singaporeair.com/", "snippet": "Le vol Singapour-New York dure environ 18h30."}]
+  },
+  {
+    "fact_id": "fact_132",
+    "fact_text": "Les empreintes digitales sont uniques.",
+    "verdict": "TRUE",
+    "sources": [{"title": "FBI", "url": "https://www.fbi.gov/", "snippet": "Aucune empreinte digitale identique n'a jamais été trouvée."}]
+  },
+  {
+    "fact_id": "fact_133",
+    "fact_text": "Les jumeaux identiques ont les mêmes empreintes digitales.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NIH", "url": "https://www.nih.gov/", "snippet": "Même les jumeaux identiques ont des empreintes différentes."}]
+  },
+  {
+    "fact_id": "fact_134",
+    "fact_text": "Le venin de serpent peut soigner certaines maladies.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Nature Medicine", "url": "https://www.nature.com/nm/", "snippet": "Des composés du venin sont utilisés dans des médicaments contre l'hypertension et la coagulation."}]
+  },
+  {
+    "fact_id": "fact_135",
+    "fact_text": "Les coraux sont des animaux.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NOAA", "url": "https://www.noaa.gov/", "snippet": "Les coraux sont des invertébrés de la famille des cnidaires."}]
+  },
+  {
+    "fact_id": "fact_136",
+    "fact_text": "Le récif de corail le plus grand est visible depuis l'espace.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "La Grande Barrière de Corail est visible depuis l'orbite terrestre."}]
+  },
+  {
+    "fact_id": "fact_137",
+    "fact_text": "Les baleines bleues sont les plus grands animaux ayant jamais existé.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NOAA", "url": "https://www.noaa.gov/", "snippet": "Les baleines bleues peuvent atteindre 30m, plus grandes que tous les dinosaures connus."}]
+  },
+  {
+    "fact_id": "fact_138",
+    "fact_text": "Le cœur d'une baleine bleue est de la taille d'une voiture.",
+    "verdict": "TRUE",
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "Le cœur d'une baleine bleue pèse environ 180 kg, de la taille d'une petite voiture."}]
+  },
+  {
+    "fact_id": "fact_139",
+    "fact_text": "Les éléphants ne peuvent pas sauter.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.si.edu/", "snippet": "Les éléphants sont les seuls mammifères qui ne peuvent pas sauter."}]
+  },
+  {
+    "fact_id": "fact_140",
+    "fact_text": "Les pieuvres ont trois cœurs.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NOAA", "url": "https://www.noaa.gov/", "snippet": "Les pieuvres ont deux cœurs branchiaux et un cœur systémique."}]
+  },
+  {
+    "fact_id": "fact_141",
+    "fact_text": "Le sang des pieuvres est bleu.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Le sang des pieuvres contient du cuivre (hémocyanine), le rendant bleu."}]
+  },
+  {
+    "fact_id": "fact_142",
+    "fact_text": "Les flamants roses naissent blancs.",
+    "verdict": "TRUE",
+    "sources": [{"title": "San Diego Zoo", "url": "https://zoo.sandiegozoo.org/", "snippet": "Les flamants naissent blancs/gris et deviennent roses par leur alimentation."}]
+  },
+  {
+    "fact_id": "fact_143",
+    "fact_text": "Le Nutella contient des noisettes italiennes.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Ferrero", "url": "https://www.ferrero.com/", "snippet": "Ferrero utilise des noisettes de plusieurs pays, principalement la Turquie."}]
+  },
+  {
+    "fact_id": "fact_144",
+    "fact_text": "La pizza hawaïenne vient d'Hawaï.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NPR", "url": "https://www.npr.org/", "snippet": "La pizza hawaïenne a été inventée au Canada par un immigrant grec."}]
+  },
+  {
+    "fact_id": "fact_145",
+    "fact_text": "Les chips ont été inventées par accident.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.smithsonianmag.com/", "snippet": "George Crum aurait inventé les chips en 1853 en réponse à un client difficile."}]
+  },
+  {
+    "fact_id": "fact_146",
+    "fact_text": "Le champagne a été inventé par Dom Pérignon.",
+    "verdict": "FALSE",
+    "sources": [{"title": "History", "url": "https://www.history.com/", "snippet": "Dom Pérignon a amélioré les techniques mais n'a pas inventé le champagne."}]
+  },
+  {
+    "fact_id": "fact_147",
+    "fact_text": "Le Coca-Cola contenait de la cocaïne à l'origine.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Snopes", "url": "https://www.snopes.com/", "snippet": "La recette originale de 1886 contenait des extraits de feuilles de coca."}]
+  },
+  {
+    "fact_id": "fact_148",
+    "fact_text": "La tomate est un fruit.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Britannica", "url": "https://www.britannica.com/", "snippet": "Botaniquement, la tomate est un fruit (une baie)."}]
+  },
+  {
+    "fact_id": "fact_149",
+    "fact_text": "Les cacahuètes sont des noix.",
+    "verdict": "FALSE",
+    "sources": [{"title": "USDA", "url": "https://www.usda.gov/", "snippet": "Les cacahuètes sont des légumineuses, pas des noix."}]
+  },
+  {
+    "fact_id": "fact_150",
+    "fact_text": "Le chewing-gum met 7 ans à être digéré.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Mayo Clinic", "url": "https://www.mayoclinic.org/", "snippet": "Le chewing-gum n'est pas digéré mais traverse le système digestif normalement."}]
+  },
+  {
+    "fact_id": "fact_151",
+    "fact_text": "L'estomac produit un nouvel acide toutes les 3 secondes.",
+    "verdict": "FALSE",
+    "sources": [{"title": "NIH", "url": "https://www.nih.gov/", "snippet": "L'estomac produit de l'acide en continu mais pas à cette fréquence."}]
+  },
+  {
+    "fact_id": "fact_152",
+    "fact_text": "Le Japon a plus de 6 000 îles.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Japan National Tourism", "url": "https://www.japan.travel/", "snippet": "Le Japon compte 6 852 îles dont 430 sont habitées."}]
+  },
+  {
+    "fact_id": "fact_153",
+    "fact_text": "La Finlande a plus de saunas que de voitures.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Finnish Sauna Society", "url": "https://www.sauna.fi/", "snippet": "La Finlande compte environ 3,3 millions de saunas pour 5,5 millions d'habitants."}]
+  },
+  {
+    "fact_id": "fact_154",
+    "fact_text": "L'Islande n'a pas d'armée.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Government of Iceland", "url": "https://www.government.is/", "snippet": "L'Islande n'a pas de forces armées permanentes depuis 1869."}]
+  },
+  {
+    "fact_id": "fact_155",
+    "fact_text": "La Suisse n'a pas participé aux deux guerres mondiales.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Swiss Government", "url": "https://www.admin.ch/", "snippet": "La Suisse est restée neutre pendant les deux guerres mondiales."}]
+  },
+  {
+    "fact_id": "fact_156",
+    "fact_text": "L'Alaska a été acheté à la Russie.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Library of Congress", "url": "https://www.loc.gov/", "snippet": "Les États-Unis ont acheté l'Alaska à la Russie en 1867 pour 7,2 millions de dollars."}]
+  },
+  {
+    "fact_id": "fact_157",
+    "fact_text": "Le drapeau français était autrefois entièrement blanc.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Élysée", "url": "https://www.elysee.fr/", "snippet": "Le drapeau blanc était celui de la monarchie française avant la Révolution."}]
+  },
+  {
+    "fact_id": "fact_158",
+    "fact_text": "La statue de la Liberté était à l'origine couleur cuivre.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NPS", "url": "https://www.nps.gov/", "snippet": "La statue était brun-cuivre et a verdi par oxydation en 20 ans."}]
+  },
+  {
+    "fact_id": "fact_159",
+    "fact_text": "Les smartphones modernes sont plus puissants que l'ordinateur d'Apollo 11.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Un iPhone a environ 100 000 fois plus de puissance que l'ordinateur de guidage Apollo."}]
+  },
+  {
+    "fact_id": "fact_160",
+    "fact_text": "Le premier email a été envoyé en 1971.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Computer History Museum", "url": "https://www.computerhistory.org/", "snippet": "Ray Tomlinson a envoyé le premier email réseau en 1971."}]
+  },
+  {
+    "fact_id": "fact_161",
+    "fact_text": "Le premier site web existe encore.",
+    "verdict": "TRUE",
+    "sources": [{"title": "CERN", "url": "https://home.cern/", "snippet": "Le premier site web, créé par Tim Berners-Lee en 1991, est toujours accessible."}]
+  },
+  {
+    "fact_id": "fact_162",
+    "fact_text": "Il y a plus de possibilités d'échecs que d'atomes dans l'univers.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "Le nombre de parties d'échecs possibles dépasse le nombre d'atomes dans l'univers observable."}]
+  },
+  {
+    "fact_id": "fact_163",
+    "fact_text": "Le WiFi signifie Wireless Fidelity.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Wi-Fi Alliance", "url": "https://www.wi-fi.org/", "snippet": "Wi-Fi n'est pas un acronyme, c'est un nom de marque."}]
+  },
+  {
+    "fact_id": "fact_164",
+    "fact_text": "Google était à l'origine appelé Backrub.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Google", "url": "https://about.google/", "snippet": "Le projet s'appelait BackRub avant d'être renommé Google en 1997."}]
+  },
+  {
+    "fact_id": "fact_165",
+    "fact_text": "Amazon a commencé comme librairie en ligne.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Amazon", "url": "https://www.aboutamazon.com/", "snippet": "Jeff Bezos a lancé Amazon en 1994 comme librairie en ligne."}]
+  },
+  {
+    "fact_id": "fact_166",
+    "fact_text": "Le créateur de Facebook a abandonné Harvard.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Harvard", "url": "https://www.harvard.edu/", "snippet": "Mark Zuckerberg a quitté Harvard en 2005 mais a reçu un diplôme honorifique en 2017."}]
+  },
+  {
+    "fact_id": "fact_167",
+    "fact_text": "Steve Jobs n'était pas programmeur.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Apple", "url": "https://www.apple.com/", "snippet": "Jobs avait des bases en programmation mais n'était pas ingénieur; Wozniak était le programmeur."}]
+  },
+  {
+    "fact_id": "fact_168",
+    "fact_text": "La Corée du Nord et la Corée du Sud sont techniquement en guerre.",
+    "verdict": "TRUE",
+    "sources": [{"title": "BBC", "url": "https://www.bbc.com/", "snippet": "La guerre de Corée s'est terminée par un armistice en 1953, pas un traité de paix."}]
+  },
+  {
+    "fact_id": "fact_169",
+    "fact_text": "Le Vatican est le plus petit pays du monde.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Vatican", "url": "https://www.vatican.va/", "snippet": "Le Vatican couvre 0,44 km², le plus petit État indépendant."}]
+  },
+  {
+    "fact_id": "fact_170",
+    "fact_text": "Monaco est plus petit que Central Park.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Monaco Government", "url": "https://www.gouv.mc/", "snippet": "Monaco fait 2,02 km² contre 3,41 km² pour Central Park."}]
+  },
+  {
+    "fact_id": "fact_171",
+    "fact_text": "Le Nil est le plus long fleuve du monde.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "Le Nil et l'Amazone se disputent le titre selon les méthodes de mesure."}]
+  },
+  {
+    "fact_id": "fact_172",
+    "fact_text": "L'Amazone contient plus d'eau que le Nil.",
+    "verdict": "TRUE",
+    "sources": [{"title": "USGS", "url": "https://www.usgs.gov/", "snippet": "L'Amazone a le plus grand débit d'eau de tous les fleuves."}]
+  },
+  {
+    "fact_id": "fact_173",
+    "fact_text": "La foudre peut frapper la même personne deux fois.",
+    "verdict": "TRUE",
+    "sources": [{"title": "National Geographic", "url": "https://www.nationalgeographic.com/", "snippet": "Roy Sullivan a été frappé par la foudre 7 fois au cours de sa vie."}]
+  },
+  {
+    "fact_id": "fact_174",
+    "fact_text": "Les humains et les bananes partagent 50% de leur ADN.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Nature Education", "url": "https://www.nature.com/scitable/", "snippet": "Humains et bananes partagent environ 50-60% de leurs gènes."}]
+  },
+  {
+    "fact_id": "fact_175",
+    "fact_text": "Les requins existent depuis plus longtemps que les arbres.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.si.edu/", "snippet": "Les requins sont apparus il y a 400 millions d'années, les arbres il y a 350 millions."}]
+  },
+  {
+    "fact_id": "fact_176",
+    "fact_text": "Le miel trouvé dans les tombes égyptiennes est encore comestible.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Smithsonian", "url": "https://www.smithsonianmag.com/", "snippet": "Du miel vieux de 3000 ans trouvé en Égypte était encore comestible."}]
+  },
+  {
+    "fact_id": "fact_177",
+    "fact_text": "Un jour sur Vénus est plus long qu'une année sur Vénus.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Vénus met 243 jours terrestres pour tourner sur elle-même mais 225 jours pour orbiter le Soleil."}]
+  },
+  {
+    "fact_id": "fact_178",
+    "fact_text": "Le Soleil représente 99,86% de la masse du système solaire.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Le Soleil contient 99,86% de la masse totale du système solaire."}]
+  },
+  {
+    "fact_id": "fact_179",
+    "fact_text": "Une cuillère à café de matière d'étoile à neutrons pèserait des milliards de tonnes.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Une cuillère à café de matière d'étoile à neutrons pèserait environ 6 milliards de tonnes."}]
+  },
+  {
+    "fact_id": "fact_180",
+    "fact_text": "Il pleut des diamants sur Jupiter et Saturne.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Nature", "url": "https://www.nature.com/", "snippet": "Les conditions atmosphériques peuvent créer des diamants qui tombent comme de la pluie."}]
+  },
+  {
+    "fact_id": "fact_181",
+    "fact_text": "L'eau chaude gèle plus vite que l'eau froide.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Scientific American", "url": "https://www.scientificamerican.com/", "snippet": "L'effet Mpemba est réel dans certaines conditions mais pas universel."}]
+  },
+  {
+    "fact_id": "fact_182",
+    "fact_text": "Les astronautes grandissent dans l'espace.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NASA", "url": "https://www.nasa.gov/", "snippet": "Les astronautes peuvent grandir de 3-5 cm en apesanteur; ils retrouvent leur taille sur Terre."}]
+  },
+  {
+    "fact_id": "fact_183",
+    "fact_text": "La tour de Pise a toujours été penchée.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Opera della Primaziale Pisana", "url": "https://www.opapisa.it/", "snippet": "Elle a commencé à pencher pendant la construction au 12e siècle."}]
+  },
+  {
+    "fact_id": "fact_184",
+    "fact_text": "Le papier ne peut pas être plié plus de 7 fois.",
+    "verdict": "FALSE",
+    "sources": [{"title": "MythBusters", "url": "https://go.discovery.com/", "snippet": "Avec assez de surface, le papier peut être plié plus de 7 fois."}]
+  },
+  {
+    "fact_id": "fact_185",
+    "fact_text": "Les humains brillent dans le noir.",
+    "verdict": "TRUE",
+    "sources": [{"title": "PLOS ONE", "url": "https://journals.plos.org/plosone/", "snippet": "Le corps humain émet une faible bioluminescence, 1000x trop faible pour être visible."}]
+  },
+  {
+    "fact_id": "fact_186",
+    "fact_text": "La langue est le muscle le plus fort du corps.",
+    "verdict": "FALSE",
+    "sources": [{"title": "Library of Congress", "url": "https://www.loc.gov/", "snippet": "La langue est un groupe de muscles; les masséters sont plus forts."}]
+  },
+  {
+    "fact_id": "fact_187",
+    "fact_text": "ChatGPT peut raisonner comme un humain.",
+    "verdict": "FALSE",
+    "sources": [{"title": "OpenAI", "url": "https://openai.com/", "snippet": "Les LLMs prédisent des mots mais ne raisonnent pas comme les humains."}]
+  },
+  {
+    "fact_id": "fact_188",
+    "fact_text": "L'IA peut créer des images réalistes de personnes qui n'existent pas.",
+    "verdict": "TRUE",
+    "sources": [{"title": "NVIDIA", "url": "https://www.nvidia.com/", "snippet": "Les GANs peuvent générer des visages réalistes de personnes fictives."}]
+  },
+  {
+    "fact_id": "fact_189",
+    "fact_text": "Les deepfakes peuvent être détectés par l'IA.",
+    "verdict": "TRUE",
+    "sources": [{"title": "MIT", "url": "https://www.mit.edu/", "snippet": "Des outils d'IA peuvent détecter les deepfakes avec une précision variable."}]
+  },
+  {
+    "fact_id": "fact_190",
+    "fact_text": "Le métavers va remplacer Internet.",
+    "verdict": "FALSE",
+    "sources": [{"title": "MIT Technology Review", "url": "https://www.technologyreview.com/", "snippet": "Le métavers est une évolution possible mais peu probable de remplacer Internet."}]
+  },
+  {
+    "fact_id": "fact_191",
+    "fact_text": "La cryptomonnaie est anonyme.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "FBI", "url": "https://www.fbi.gov/", "snippet": "La plupart des cryptos sont pseudonymes, pas anonymes; les transactions sont traçables."}]
+  },
+  {
+    "fact_id": "fact_192",
+    "fact_text": "Les NFT prouvent la propriété d'une œuvre.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Harvard Law", "url": "https://hls.harvard.edu/", "snippet": "Les NFT prouvent la propriété du token, pas nécessairement de l'œuvre sous-jacente."}]
+  },
+  {
+    "fact_id": "fact_193",
+    "fact_text": "L'ordinateur quantique peut casser tous les chiffrements.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "IBM", "url": "https://www.ibm.com/", "snippet": "Les ordinateurs quantiques pourraient casser certains chiffrements actuels mais pas tous; la cryptographie post-quantique existe."}]
+  },
+  {
+    "fact_id": "fact_194",
+    "fact_text": "Le Premier Ministre britannique vit au 10 Downing Street.",
+    "verdict": "TRUE",
+    "sources": [{"title": "UK Government", "url": "https://www.gov.uk/", "snippet": "Le 10 Downing Street est la résidence officielle du Premier Ministre depuis 1735."}]
+  },
+  {
+    "fact_id": "fact_195",
+    "fact_text": "La reine Elizabeth II a été la monarque britannique la plus longtemps régnante.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Royal Family", "url": "https://www.royal.uk/", "snippet": "Elizabeth II a régné 70 ans, le plus long règne de l'histoire britannique."}]
+  },
+  {
+    "fact_id": "fact_196",
+    "fact_text": "Le français était la langue de la diplomatie internationale.",
+    "verdict": "TRUE",
+    "sources": [{"title": "ONU", "url": "https://www.un.org/", "snippet": "Le français était la principale langue diplomatique du 17e au 20e siècle."}]
+  },
+  {
+    "fact_id": "fact_197",
+    "fact_text": "L'espéranto est une langue artificielle.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Britannica", "url": "https://www.britannica.com/", "snippet": "L'espéranto a été créé par L.L. Zamenhof en 1887."}]
+  },
+  {
+    "fact_id": "fact_198",
+    "fact_text": "Le mandarin est la langue la plus parlée au monde.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Ethnologue", "url": "https://www.ethnologue.com/", "snippet": "Le mandarin compte environ 920 millions de locuteurs natifs."}]
+  },
+  {
+    "fact_id": "fact_199",
+    "fact_text": "L'anglais a plus de mots que toute autre langue.",
+    "verdict": "PARTIALLY_TRUE",
+    "sources": [{"title": "Oxford English Dictionary", "url": "https://www.oed.com/", "snippet": "L'anglais a un vocabulaire très large mais comparer les langues est complexe."}]
+  },
+  {
+    "fact_id": "fact_200",
+    "fact_text": "Il existe environ 7 000 langues dans le monde.",
+    "verdict": "TRUE",
+    "sources": [{"title": "Ethnologue", "url": "https://www.ethnologue.com/", "snippet": "On compte environ 7 139 langues vivantes dans le monde."}]
   }
 ]

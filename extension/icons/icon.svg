@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad)"/>
+  
+  <!-- Pulse line -->
+  <path d="M20 64 L40 64 L48 45 L56 83 L64 54 L72 74 L80 64 L108 64" 
+        fill="none" 
+        stroke="#fff" 
+        stroke-width="6" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Check mark accent -->
+  <path d="M88 38 L98 48" 
+        fill="none" 
+        stroke="#9ae6b4" 
+        stroke-width="5" 
+        stroke-linecap="round"/>
+  <path d="M98 48 L108 28" 
+        fill="none" 
+        stroke="#9ae6b4" 
+        stroke-width="5" 
+        stroke-linecap="round"/>
+</svg>

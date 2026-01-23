@@ -111,12 +111,12 @@ class TimeoutManager:
         self.default_timeout_ms = default_timeout_ms
         self._executor = ThreadPoolExecutor(max_workers=4)
         self._stage_timeouts = {
-            "claim_detection": 200,
+            "claim_detection": 5000,  # MVP: temps pour charger le modèle
             "fast_lookup": 500,
             "rag_retrieval": 500,
             "rag_generation": 1200,
             "rag_verification": 1500,
-            "total": 2000
+            "total": 10000  # MVP: timeout total augmenté
         }
     
     def set_stage_timeout(self, stage: str, timeout_ms: float) -> None:

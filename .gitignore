@@ -1,0 +1,89 @@
+############################
+# Python
+############################
+__pycache__/
+*.py[cod]
+*$py.class
+
+############################
+# Environnements virtuels
+############################
+venv/
+.venv/
+env/
+ENV/
+.virtualenv/
+
+############################
+# Variables d'environnement
+############################
+.env
+.env.*
+!.env.example
+
+############################
+# Fichiers de build / packaging
+############################
+build/
+dist/
+*.egg-info/
+.eggs/
+
+############################
+# Tests / coverage
+############################
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+############################
+# Logs & fichiers temporaires
+############################
+*.log
+*.tmp
+*.swp
+*.swo
+
+############################
+# Jupyter / Data
+############################
+.ipynb_checkpoints/
+*.sqlite3
+*.db
+
+############################
+# IDE / Éditeurs
+############################
+.vscode/
+.idea/
+*.iml
+
+############################
+# OS
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Docker
+############################
+*.pid
+docker-compose.override.yml
+
+############################
+# Sous-projets (monorepo)
+# Ignore les venv partout
+############################
+**/venv/
+**/.venv/
+**/__pycache__/
+
+############################
+# Secrets
+############################
+*.pem
+*.key
+*.crt

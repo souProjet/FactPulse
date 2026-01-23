@@ -450,4 +450,36 @@
     getResults: () => lastResults
   };
 
+  // ============================================================================
+  // MESSAGE LISTENER
+  // ============================================================================
+  
+  /**
+   * Écoute les messages du popup et du background script.
+   */
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'analyze') {
+      runAnalysis().then(() => {
+        sendResponse({ 
+          success: true, 
+          claimsCount: lastResults?.claims_verified || 0,
+          time: lastResults?.timing?.total_ms || 0
+        });
+      }).catch(error => {
+        sendResponse({ success: false, error: error.message });
+      });
+      return true; // Keep channel open for async response
+    }
+    
+    if (message.action === 'getStatus') {
+      sendResponse({ 
+        status: currentStatus, 
+        results: lastResults 
+      });
+      return false;
+    }
+    
+    return false;
+  });
+
 })();

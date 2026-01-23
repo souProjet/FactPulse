@@ -4,13 +4,22 @@
   "version": "1.0.0",
   "description": "Vérification automatique des faits en temps réel",
   
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "factpulse@example.org",
+      "strict_min_version": "109.0"
+    }
+  },
+  
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "scripting"
   ],
   
   "host_permissions": [
-    "http://localhost:8000/*"
+    "http://localhost:8000/*",
+    "<all_urls>"
   ],
   
   "action": {
@@ -32,7 +41,7 @@
   ],
   
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
   
   "icons": {

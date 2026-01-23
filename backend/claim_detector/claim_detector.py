@@ -109,7 +109,7 @@ class ClaimDetector:
         self,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
         device: Optional[str] = None,
-        threshold: float = 0.7,
+        threshold: float = 0.5,  # MVP: seuil bas car modèle non entraîné
         max_length: int = 128,
         batch_size: int = 16
     ):
@@ -217,7 +217,8 @@ class ClaimDetector:
     def _mean_pooling(self, model_output: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
         """Mean pooling des embeddings."""
         token_embeddings = model_output[0]
-        input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+        # Garder le même dtype que les embeddings (FP16 sur GPU)
+        input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).to(token_embeddings.dtype)
         return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
     
     @torch.no_grad()
@@ -277,14 +278,16 @@ class ClaimDetector:
         # Embedding
         embedding = self._get_embeddings([clean_text])
         
-        # Classification
+        # Classification (modèle non-entraîné pour le MVP)
         model_score = self._classifier(embedding).item()
         
         # Score heuristique
         heuristic_score = self._compute_heuristic_score(clean_text)
         
-        # Combiner scores (70% modèle, 30% heuristique)
-        combined_score = 0.7 * model_score + 0.3 * ((heuristic_score + 1) / 2)
+        # MVP: privilégier l'heuristique (modèle non entraîné)
+        # Quand le modèle sera entraîné, revenir à 70/30
+        # combined_score = 0.7 * model_score + 0.3 * ((heuristic_score + 1) / 2)
+        combined_score = 0.3 * model_score + 0.7 * ((heuristic_score + 1) / 2)
         
         # Sync GPU
         if "cuda" in self.device:
