@@ -117,21 +117,27 @@ async def lifespan(app: FastAPI):
         load_config()
         
         config = PipelineConfig(
-            claim_detection_timeout=2000,  # MVP: temps pour charger le modèle au premier appel
-            fast_lookup_timeout=500,
-            rag_timeout=1500,
-            total_timeout=5000,  # MVP: timeout total augmenté
-            claim_confidence_threshold=0.4,  # MVP: seuil bas car modèle non entraîné
-            check_worthiness_threshold=0.3,  # MVP: seuil bas pour tester
-            fast_lookup_similarity_threshold=0.6,  # MVP: seuil bas pour matcher plus facilement
+            claim_detection_timeout=5000,
+            fast_lookup_timeout=1000,
+            rag_timeout=8000,  # Qwen2.5-0.5B est rapide
+            total_timeout=15000,
+            claim_confidence_threshold=0.4,
+            check_worthiness_threshold=0.3,
+            fast_lookup_similarity_threshold=0.6,
             enable_graceful_degradation=True,
-            log_false_positives=True
+            log_false_positives=True,
+            max_claims_per_request=10
         )
         
         pipeline = FactCheckPipeline(config=config, device="cuda")
         pipeline.initialize()
         
-        logger.info("FactPulse démarré avec succès")
+        # Précharger le module RAG (modèles LLM) pour éviter les timeouts
+        logger.info("Préchargement du module RAG (cela peut prendre 30-60 secondes)...")
+        pipeline._init_rag()
+        logger.info("Module RAG préchargé avec succès")
+        
+        logger.info("FactPulse démarré avec succès - prêt à analyser")
         
     except Exception as e:
         logger.error(f"Erreur au démarrage: {e}")

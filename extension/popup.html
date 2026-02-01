@@ -154,6 +154,43 @@
       margin-top: 4px;
     }
     
+    .verdict-summary {
+      display: flex;
+      justify-content: space-around;
+      padding: 12px;
+      background: #2d3748;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    
+    .verdict-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .verdict-icon {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: bold;
+      color: #fff;
+    }
+    
+    .verdict-true .verdict-icon { background: #38a169; }
+    .verdict-false .verdict-icon { background: #e53e3e; }
+    .verdict-partial .verdict-icon { background: #ed8936; }
+    .verdict-unknown .verdict-icon { background: #718096; }
+    
+    .verdict-count {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
     .footer {
       padding: 12px 20px;
       border-top: 1px solid #2d3748;
@@ -198,7 +235,7 @@
 <body>
   <div class="header">
     <div class="logo">FactPulse</div>
-    <div class="version">v1.0.0</div>
+    <div class="version">v2.0.0</div>
   </div>
   
   <div class="content">
@@ -213,20 +250,43 @@
     <div class="stats">
       <div class="stat-card">
         <div class="stat-value" id="stat-claims">-</div>
-        <div class="stat-label">Claims analysés</div>
+        <div class="stat-label">Claims détectés</div>
       </div>
       <div class="stat-card">
         <div class="stat-value" id="stat-time">-</div>
-        <div class="stat-label">Temps moyen</div>
+        <div class="stat-label">Temps d'analyse</div>
+      </div>
+    </div>
+    
+    <div class="verdict-summary" id="verdict-summary" style="display: none;">
+      <div class="verdict-item verdict-true">
+        <span class="verdict-icon">✓</span>
+        <span class="verdict-count" id="count-true">0</span>
+      </div>
+      <div class="verdict-item verdict-false">
+        <span class="verdict-icon">✗</span>
+        <span class="verdict-count" id="count-false">0</span>
+      </div>
+      <div class="verdict-item verdict-partial">
+        <span class="verdict-icon">~</span>
+        <span class="verdict-count" id="count-partial">0</span>
+      </div>
+      <div class="verdict-item verdict-unknown">
+        <span class="verdict-icon">?</span>
+        <span class="verdict-count" id="count-unknown">0</span>
       </div>
     </div>
     
     <button class="btn btn-primary" id="btn-analyze" disabled>
-      Analyser cette page
+      ⚡ Analyser le viewport
+    </button>
+    
+    <button class="btn btn-secondary" id="btn-clear">
+      🗑️ Effacer les annotations
     </button>
     
     <button class="btn btn-secondary" id="btn-settings">
-      Paramètres
+      ⚙️ Paramètres
     </button>
     
     <div class="loading" id="loading">

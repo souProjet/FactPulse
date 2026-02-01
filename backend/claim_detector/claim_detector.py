@@ -105,6 +105,13 @@ class ClaimDetector:
         r'^(bonjour|salut|merci|svp)\b',  # Salutations
     ]
     
+    # Pattern pour découper en phrases
+    SENTENCE_SPLIT_PATTERN = re.compile(
+        r'(?<=[.!?])\s+(?=[A-ZÀ-ÿ])|'  # Point/!/? suivi d'une majuscule
+        r'(?<=\.)\s*\n+|'               # Point suivi de saut de ligne
+        r'\n{2,}'                        # Double saut de ligne
+    )
+    
     def __init__(
         self,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
@@ -383,6 +390,63 @@ class ClaimDetector:
                     ))
         
         return results
+    
+    def split_into_sentences(self, text: str) -> List[str]:
+        """
+        Découpe un texte en phrases individuelles.
+        
+        Args:
+            text: Texte à découper
+            
+        Returns:
+            Liste de phrases
+        """
+        if not text or len(text.strip()) < 10:
+            return []
+        
+        # Nettoyer le texte
+        text = re.sub(r'\s+', ' ', text).strip()
+        
+        # Découper en phrases
+        sentences = self.SENTENCE_SPLIT_PATTERN.split(text)
+        
+        # Filtrer les phrases trop courtes ou vides
+        result = []
+        for s in sentences:
+            s = s.strip()
+            # Au moins 20 caractères et 4 mots
+            if len(s) >= 20 and len(s.split()) >= 4:
+                result.append(s)
+        
+        return result
+    
+    def detect_claims_in_text(self, text: str, max_claims: int = 10) -> List[ClaimDetectionResult]:
+        """
+        Détecte tous les claims dans un texte long.
+        
+        Découpe le texte en phrases et détecte lesquelles sont des claims.
+        
+        Args:
+            text: Texte à analyser
+            max_claims: Nombre maximum de claims à retourner
+            
+        Returns:
+            Liste des claims détectés (is_claim=True seulement), triés par confiance
+        """
+        # Découper en phrases
+        sentences = self.split_into_sentences(text)
+        
+        if not sentences:
+            return []
+        
+        # Détecter en batch
+        all_results = self.detect_batch(sentences)
+        
+        # Filtrer les claims et trier par confiance
+        claims = [r for r in all_results if r.is_claim]
+        claims.sort(key=lambda x: x.confidence, reverse=True)
+        
+        return claims[:max_claims]
     
     def set_threshold(self, threshold: float) -> None:
         """

@@ -1,5 +1,5 @@
 /**
- * FactPulse Popup Script
+ * FactPulse Popup Script v2.0
  * 
  * Gère l'interface popup de l'extension.
  * Communique avec le content script et le backend.
@@ -24,7 +24,13 @@
     statusDetail: document.getElementById('status-detail'),
     statClaims: document.getElementById('stat-claims'),
     statTime: document.getElementById('stat-time'),
+    verdictSummary: document.getElementById('verdict-summary'),
+    countTrue: document.getElementById('count-true'),
+    countFalse: document.getElementById('count-false'),
+    countPartial: document.getElementById('count-partial'),
+    countUnknown: document.getElementById('count-unknown'),
     btnAnalyze: document.getElementById('btn-analyze'),
+    btnClear: document.getElementById('btn-clear'),
     btnSettings: document.getElementById('btn-settings'),
     loading: document.getElementById('loading')
   };
@@ -34,10 +40,7 @@
   // ============================================================================
   
   let isConnected = false;
-  let stats = {
-    totalClaims: 0,
-    avgTime: 0
-  };
+  let lastResults = null;
 
   // ============================================================================
   // API
@@ -120,6 +123,36 @@
   }
   
   /**
+   * Met à jour le résumé des verdicts.
+   */
+  function updateVerdictSummary(results) {
+    if (!results || results.length === 0) {
+      elements.verdictSummary.style.display = 'none';
+      return;
+    }
+    
+    const counts = {
+      TRUE: 0,
+      FALSE: 0,
+      PARTIALLY_TRUE: 0,
+      NOT_VERIFIABLE: 0
+    };
+    
+    for (const r of results) {
+      if (counts.hasOwnProperty(r.verdict)) {
+        counts[r.verdict]++;
+      }
+    }
+    
+    elements.countTrue.textContent = counts.TRUE;
+    elements.countFalse.textContent = counts.FALSE;
+    elements.countPartial.textContent = counts.PARTIALLY_TRUE;
+    elements.countUnknown.textContent = counts.NOT_VERIFIABLE;
+    
+    elements.verdictSummary.style.display = 'flex';
+  }
+  
+  /**
    * Affiche/masque le loading.
    */
   function setLoading(loading) {
@@ -137,7 +170,7 @@
   // ============================================================================
   
   /**
-   * Lance l'analyse de la page courante.
+   * Lance l'analyse de la page courante (viewport uniquement).
    */
   async function analyzePage() {
     setLoading(true);
@@ -155,6 +188,12 @@
       
       if (response && response.success) {
         updateStats(response.claimsCount, response.time);
+        
+        // Récupérer les détails pour le résumé des verdicts
+        const statusResponse = await chrome.tabs.sendMessage(tab.id, { action: 'getStatus' });
+        if (statusResponse && statusResponse.results && statusResponse.results.results) {
+          updateVerdictSummary(statusResponse.results.results);
+        }
       } else {
         console.error('Analysis failed:', response);
       }
@@ -182,6 +221,28 @@
     }
     
     setLoading(false);
+  }
+  
+  /**
+   * Efface les annotations de la page.
+   */
+  async function clearAnnotations() {
+    try {
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      
+      if (!tab || !tab.id) {
+        return;
+      }
+      
+      await chrome.tabs.sendMessage(tab.id, { action: 'clear' });
+      
+      // Réinitialiser l'affichage
+      updateStats(null, null);
+      elements.verdictSummary.style.display = 'none';
+      
+    } catch (error) {
+      console.error('Clear error:', error);
+    }
   }
   
   /**
@@ -216,18 +277,29 @@
       updateStatus(false, 'Démarrez le serveur: uvicorn backend.api:app');
     }
     
-    // Charger les stats depuis le storage
+    // Charger l'état depuis le content script
     try {
-      const stored = await chrome.storage.local.get(['stats']);
-      if (stored.stats) {
-        updateStats(stored.stats.totalClaims, stored.stats.avgTime);
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      if (tab && tab.id) {
+        const statusResponse = await chrome.tabs.sendMessage(tab.id, { action: 'getStatus' });
+        if (statusResponse && statusResponse.results) {
+          const results = statusResponse.results;
+          if (results.claims_verified !== undefined) {
+            updateStats(results.claims_verified, results.timing?.total_ms);
+          }
+          if (results.results) {
+            updateVerdictSummary(results.results);
+          }
+        }
       }
     } catch (e) {
-      console.error('Storage error:', e);
+      // Content script pas encore injecté, c'est OK
+      console.log('Content script not available yet');
     }
     
     // Event listeners
     elements.btnAnalyze.addEventListener('click', analyzePage);
+    elements.btnClear.addEventListener('click', clearAnnotations);
     elements.btnSettings.addEventListener('click', openSettings);
   }
   

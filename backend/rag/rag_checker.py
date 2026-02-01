@@ -151,19 +151,19 @@ class RAGChecker:
     def __init__(
         self,
         embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2",
-        llm_model: str = "microsoft/Phi-3-mini-4k-instruct",
+        llm_model: str = "Qwen/Qwen2.5-0.5B-Instruct",  # Modèle léger et rapide (<3s)
         device: Optional[str] = None,
-        top_k: int = 5,
+        top_k: int = 3,  # Réduire pour accélérer
         min_relevance: float = 0.5,
-        max_new_tokens: int = 256,
-        use_english_prompt: bool = False
+        max_new_tokens: int = 128,  # Réduire pour accélérer
+        use_english_prompt: bool = True  # Qwen fonctionne mieux en anglais
     ):
         """
         Initialise le RAG Checker.
         
         Args:
             embedding_model: Modèle pour les embeddings
-            llm_model: LLM pour la génération
+            llm_model: LLM pour la génération (Qwen2.5-0.5B est rapide)
             device: Device torch
             top_k: Nombre de sources à récupérer
             min_relevance: Score minimum de pertinence
@@ -191,29 +191,34 @@ class RAGChecker:
         if self._loaded:
             return
         
+        import logging
+        logger = logging.getLogger('factpulse.rag')
+        
         # Embedding model
+        logger.info(f"Chargement du modèle d'embedding: {self.embedding_model_name}")
         self._embedding_model = SentenceTransformer(
             self.embedding_model_name, 
             device=self.device
         )
         
-        # LLM avec quantization 4-bit
-        quantization_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_use_double_quant=True
-        )
+        # LLM - Qwen2.5-0.5B est assez petit pour tourner sans quantization
+        # Utiliser FP16 directement pour plus de rapidité
+        logger.info(f"Chargement du LLM: {self.llm_model_name}")
         
-        self._tokenizer = AutoTokenizer.from_pretrained(self.llm_model_name)
-        self._llm = AutoModelForCausalLM.from_pretrained(
+        self._tokenizer = AutoTokenizer.from_pretrained(
             self.llm_model_name,
-            quantization_config=quantization_config,
-            device_map="auto",
-            torch_dtype=torch.float16,
             trust_remote_code=True
         )
         
+        # Pour les petits modèles (<1B), FP16 sans quantization est plus rapide
+        self._llm = AutoModelForCausalLM.from_pretrained(
+            self.llm_model_name,
+            torch_dtype=torch.float16,
+            device_map="auto",
+            trust_remote_code=True
+        )
+        
+        logger.info("Modèles chargés avec succès")
         self._loaded = True
     
     def load_sources(self, sources_path: str) -> int:
@@ -255,10 +260,14 @@ class RAGChecker:
         self._faiss_index = faiss.IndexFlatIP(dim)
         
         if "cuda" in self.device and faiss.get_num_gpus() > 0:
-            res = faiss.StandardGpuResources()
-            self._faiss_index = faiss.index_cpu_to_gpu(res, 0, self._faiss_index)
+            try:
+                res = faiss.StandardGpuResources()  # type: ignore
+                self._faiss_index = faiss.index_cpu_to_gpu(res, 0, self._faiss_index)  # type: ignore
+            except (AttributeError, RuntimeError):
+                # GPU FAISS not available, continue with CPU
+                pass
         
-        self._faiss_index.add(embeddings)
+        self._faiss_index.add(embeddings)  # type: ignore[union-attr]
         
         return len(data)
     
@@ -274,6 +283,9 @@ class RAGChecker:
         if self._faiss_index is None or self._faiss_index.ntotal == 0:
             return [], (time.perf_counter() - start) * 1000
         
+        if self._embedding_model is None:
+            return [], (time.perf_counter() - start) * 1000
+        
         # Encoder le claim
         query_embedding = self._embedding_model.encode(
             [claim],
@@ -283,7 +295,7 @@ class RAGChecker:
         
         # Recherche
         k = min(self.top_k, self._faiss_index.ntotal)
-        similarities, indices = self._faiss_index.search(query_embedding, k)
+        similarities, indices = self._faiss_index.search(query_embedding, k)  # type: ignore[union-attr]
         
         sources = []
         for sim, idx in zip(similarities[0], indices[0]):
@@ -330,21 +342,32 @@ class RAGChecker:
         """
         start = time.perf_counter()
         
+        if self._tokenizer is None or self._llm is None:
+            return "", (time.perf_counter() - start) * 1000
+        
+        # Limiter la longueur du prompt pour accélérer
         inputs = self._tokenizer(
             prompt,
             return_tensors="pt",
             truncation=True,
-            max_length=2048
+            max_length=1024  # Réduire pour accélérer
         ).to(self._llm.device)
+        
+        # Synchroniser GPU avant génération
+        if "cuda" in str(self._llm.device):
+            torch.cuda.synchronize()
         
         outputs = self._llm.generate(
             **inputs,
             max_new_tokens=self.max_new_tokens,
-            temperature=0.1,  # Basse température pour déterminisme
-            do_sample=False,  # Greedy decoding
-            pad_token_id=self._tokenizer.eos_token_id,
-            use_cache=False  # Fix pour compatibilité transformers récent
+            do_sample=False,  # Greedy decoding (plus rapide)
+            pad_token_id=self._tokenizer.eos_token_id or self._tokenizer.pad_token_id or 0,
+            use_cache=True  # Activer le cache KV pour accélérer
         )
+        
+        # Synchroniser GPU après génération
+        if "cuda" in str(self._llm.device):
+            torch.cuda.synchronize()
         
         # Décoder seulement les nouveaux tokens
         response = self._tokenizer.decode(

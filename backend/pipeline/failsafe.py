@@ -103,7 +103,7 @@ class TimeoutManager:
         )
     """
     
-    def __init__(self, default_timeout_ms: float = 2000):
+    def __init__(self, default_timeout_ms: float = 10000):
         """
         Args:
             default_timeout_ms: Timeout par défaut en millisecondes
@@ -111,12 +111,12 @@ class TimeoutManager:
         self.default_timeout_ms = default_timeout_ms
         self._executor = ThreadPoolExecutor(max_workers=4)
         self._stage_timeouts = {
-            "claim_detection": 5000,  # MVP: temps pour charger le modèle
-            "fast_lookup": 500,
-            "rag_retrieval": 500,
-            "rag_generation": 1200,
-            "rag_verification": 1500,
-            "total": 10000  # MVP: timeout total augmenté
+            "claim_detection": 5000,
+            "fast_lookup": 1000,
+            "rag_retrieval": 2000,
+            "rag_generation": 5000,  # Qwen2.5-0.5B est rapide
+            "rag_verification": 8000,  # Total RAG
+            "total": 15000
         }
     
     def set_stage_timeout(self, stage: str, timeout_ms: float) -> None:

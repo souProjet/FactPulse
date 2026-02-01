@@ -48,10 +48,10 @@ def translate_verdict(verdict: str) -> str:
 class PipelineConfig:
     """Configuration du pipeline."""
     # Timeouts (ms)
-    claim_detection_timeout: float = 200
-    fast_lookup_timeout: float = 500
-    rag_timeout: float = 1500
-    total_timeout: float = 2000
+    claim_detection_timeout: float = 3000
+    fast_lookup_timeout: float = 1000
+    rag_timeout: float = 8000  # Augmenté pour LLM lent
+    total_timeout: float = 15000
     
     # Seuils
     claim_confidence_threshold: float = 0.6
@@ -129,6 +129,62 @@ class FactCheckPipeline:
         self._initialized = False
         self._executor = ThreadPoolExecutor(max_workers=4)
     
+    def _deduplicate_claims(self, claims: List) -> tuple:
+        """
+        Déduplique les claims similaires pour éviter les analyses redondantes.
+        
+        Utilise une similarité textuelle simple basée sur les mots clés.
+        
+        Returns:
+            (unique_claims, groups) où groups mappe chaque claim unique vers ses duplicates
+        """
+        if not claims:
+            return [], {}
+        
+        def normalize_text(text: str) -> str:
+            """Normalise le texte pour comparaison."""
+            import re
+            text = text.lower()
+            text = re.sub(r'[^\w\s]', '', text)
+            text = re.sub(r'\s+', ' ', text).strip()
+            return text
+        
+        def similarity_score(text1: str, text2: str) -> float:
+            """Calcule un score de similarité simple basé sur les mots communs."""
+            words1 = set(normalize_text(text1).split())
+            words2 = set(normalize_text(text2).split())
+            
+            if not words1 or not words2:
+                return 0.0
+            
+            intersection = words1 & words2
+            union = words1 | words2
+            
+            return len(intersection) / len(union)  # Jaccard similarity
+        
+        unique_claims = []
+        groups = {}  # claim_text -> [similar_claims]
+        
+        for claim in claims:
+            claim_text = claim.text
+            is_duplicate = False
+            
+            # Chercher si ce claim est similaire à un claim existant
+            for unique in unique_claims:
+                if similarity_score(claim_text, unique.text) > 0.7:  # Seuil de similarité
+                    # C'est un duplicate
+                    if unique.text not in groups:
+                        groups[unique.text] = []
+                    groups[unique.text].append(claim)
+                    is_duplicate = True
+                    break
+            
+            if not is_duplicate:
+                unique_claims.append(claim)
+                groups[claim_text] = []  # Initialiser le groupe
+        
+        return unique_claims, groups
+    
     def initialize(self) -> None:
         """Initialise les composants du pipeline."""
         if self._initialized:
@@ -165,12 +221,21 @@ class FactCheckPipeline:
         try:
             from ..rag.rag_checker import RAGChecker
             from pathlib import Path
+            import logging
+            
+            logger = logging.getLogger('factpulse.pipeline')
+            logger.info("Chargement du module RAG...")
             
             self._rag_checker = RAGChecker(device=self.device)
             
             facts_path = Path(__file__).parent.parent.parent / "data" / "known_facts.json"
             if facts_path.exists():
                 self._rag_checker.load_sources(str(facts_path))
+            
+            # Précharger les modèles pour éviter les timeouts au premier appel
+            logger.info("Préchargement des modèles LLM (peut prendre 30-60 secondes)...")
+            self._rag_checker.load_models()
+            logger.info("Modèles RAG chargés avec succès")
             
             return True
         except Exception as e:
@@ -185,6 +250,8 @@ class FactCheckPipeline:
     async def analyze(self, text: str) -> PipelineResult:
         """
         Analyse un texte avec fail-safe.
+        
+        Détecte et vérifie plusieurs claims dans le texte.
         
         Args:
             text: Texte à analyser
@@ -201,15 +268,19 @@ class FactCheckPipeline:
         self.initialize()
         
         # ====================================================================
-        # STAGE 1: Claim Detection
+        # STAGE 1: Claim Detection (multi-claims)
         # ====================================================================
         stage_start = time.perf_counter()
         
-        detection_result, error = self.timeout_mgr.run_with_timeout(
-            lambda: self._claim_detector.detect(text),
+        # Utiliser detect_claims_in_text pour obtenir tous les claims
+        detected_claims, error = self.timeout_mgr.run_with_timeout(
+            lambda: self._claim_detector.detect_claims_in_text(
+                text, 
+                max_claims=self.config.max_claims_per_request
+            ),
             timeout_ms=self.config.claim_detection_timeout,
             stage="claim_detection",
-            default=None
+            default=[]
         )
         
         claim_detection_time = (time.perf_counter() - stage_start) * 1000
@@ -231,165 +302,180 @@ class FactCheckPipeline:
                 errors=errors
             )
         
-        # Check if claim detected
-        claims_detected = 1 if detection_result and detection_result.is_claim else 0
+        # Nombre de claims détectés
+        claims_detected = len(detected_claims) if detected_claims else 0
         
-        if not detection_result or not detection_result.is_claim:
+        if not detected_claims or claims_detected == 0:
             timing["total_ms"] = round((time.perf_counter() - total_start) * 1000, 2)
             return PipelineResult(
                 status="success",
-                claims_detected=claims_detected,
+                claims_detected=0,
                 claims_verified=0,
                 results=[],
                 timing=timing
             )
         
-        # Check if worth verifying
-        if detection_result.confidence < self.config.check_worthiness_threshold:
-            timing["total_ms"] = round((time.perf_counter() - total_start) * 1000, 2)
-            return PipelineResult(
-                status="success",
-                claims_detected=claims_detected,
-                claims_verified=0,
-                results=[{
-                    "claim_text": text[:200],
-                    "verdict": "SKIPPED",
-                    "confidence": detection_result.confidence,
-                    "explanation": "Confiance insuffisante pour vérification",
-                    "sources": [],
-                    "verification_method": "none"
-                }],
-                timing=timing
-            )
+        # ====================================================================
+        # DEDUPLICATION: Regrouper les claims similaires
+        # ====================================================================
+        deduplicated_claims, claim_groups = self._deduplicate_claims(detected_claims)
         
         # ====================================================================
-        # STAGE 2: Fast Lookup
-        # ====================================================================
-        stage_start = time.perf_counter()
-        
-        lookup_result, error = self.timeout_mgr.run_with_timeout(
-            lambda: self._fact_store.lookup(text),
-            timeout_ms=self.config.fast_lookup_timeout,
-            stage="fast_lookup",
-            default=None
-        )
-        
-        fast_lookup_time = (time.perf_counter() - stage_start) * 1000
-        timing["stages"].append({
-            "stage": "fast_lookup",
-            "duration_ms": round(fast_lookup_time, 2)
-        })
-        
-        if error:
-            errors.append(error.to_dict())
-            self.error_logger.log_error(error)
-            # Continue to RAG as fallback
-        
-        # Fast lookup hit?
-        if lookup_result and lookup_result.found:
-            verdict = lookup_result.fact.verdict.value
-            if self.config.translate_verdicts:
-                verdict = translate_verdict(verdict)
-            
-            results.append({
-                "claim_text": text[:200],
-                "verdict": verdict,
-                "confidence": lookup_result.similarity,
-                "explanation": f"Match avec fait connu: {lookup_result.fact.canonical_claim}",
-                "sources": [s.to_dict() for s in lookup_result.fact.sources],
-                "verification_method": "fast_lookup"
-            })
-            
-            timing["total_ms"] = round((time.perf_counter() - total_start) * 1000, 2)
-            return PipelineResult(
-                status="success",
-                claims_detected=claims_detected,
-                claims_verified=1,
-                results=results,
-                timing=timing,
-                errors=errors
-            )
-        
-        # ====================================================================
-        # STAGE 3: RAG Verification (with graceful degradation)
+        # STAGE 2 & 3: Vérifier chaque claim unique (Fast Lookup puis RAG)
         # ====================================================================
         degraded = False
         degradation_reason = ""
+        verified_results = {}  # claim_text -> result (pour réutilisation)
         
-        # Check if RAG should be skipped
-        if self.config.enable_graceful_degradation and self.degradation.should_skip_rag():
-            state = self.degradation.get_state()
-            degraded = True
-            degradation_reason = state.get("rag_disable_reason", "RAG désactivé")
+        for claim_result in deduplicated_claims:
+            claim_text = claim_result.text
             
-            results.append({
-                "claim_text": text[:200],
-                "verdict": "NOT_VERIFIABLE",
-                "confidence": 0.0,
-                "explanation": f"Vérification RAG non disponible: {degradation_reason}",
-                "sources": [],
-                "verification_method": "degraded"
-            })
-        else:
-            # Try RAG
+            # Skip si confiance trop basse
+            if claim_result.confidence < self.config.check_worthiness_threshold:
+                results.append({
+                    "claim_text": claim_text[:200],
+                    "verdict": "SKIPPED",
+                    "confidence": claim_result.confidence,
+                    "explanation": "Confiance insuffisante pour vérification",
+                    "sources": [],
+                    "verification_method": "none"
+                })
+                continue
+            
+            # Fast Lookup d'abord
+            stage_start = time.perf_counter()
+            
+            lookup_result, lookup_error = self.timeout_mgr.run_with_timeout(
+                lambda ct=claim_text: self._fact_store.lookup(ct),
+                timeout_ms=self.config.fast_lookup_timeout,
+                stage="fast_lookup",
+                default=None
+            )
+            
+            if lookup_error:
+                errors.append(lookup_error.to_dict())
+            
+            # Fast lookup hit?
+            if lookup_result and lookup_result.found:
+                verdict = lookup_result.fact.verdict.value
+                if self.config.translate_verdicts:
+                    verdict = translate_verdict(verdict)
+                
+                results.append({
+                    "claim_text": claim_text[:200],
+                    "verdict": verdict,
+                    "confidence": lookup_result.similarity,
+                    "explanation": f"Match avec fait connu: {lookup_result.fact.canonical_claim}",
+                    "sources": [s.to_dict() for s in lookup_result.fact.sources],
+                    "verification_method": "fast_lookup"
+                })
+                continue
+            
+            # RAG si pas de match fast lookup
+            if self.config.enable_graceful_degradation and self.degradation.should_skip_rag():
+                state = self.degradation.get_state()
+                degraded = True
+                degradation_reason = state.get("rag_disable_reason", "RAG désactivé")
+                
+                results.append({
+                    "claim_text": claim_text[:200],
+                    "verdict": "NOT_VERIFIABLE",
+                    "confidence": 0.0,
+                    "explanation": f"Vérification RAG non disponible: {degradation_reason}",
+                    "sources": [],
+                    "verification_method": "degraded"
+                })
+                continue
+            
+            # Essayer RAG
             if not self._init_rag():
                 results.append({
-                    "claim_text": text[:200],
+                    "claim_text": claim_text[:200],
                     "verdict": "NOT_VERIFIABLE",
                     "confidence": 0.0,
                     "explanation": "Module RAG non disponible",
                     "sources": [],
                     "verification_method": "error"
                 })
-            else:
-                stage_start = time.perf_counter()
-                
-                # Run RAG in executor to not block
-                loop = asyncio.get_event_loop()
-                # Capture text dans une closure
-                _text = text
-                rag_result, error = await loop.run_in_executor(
-                    self._executor,
-                    lambda: self.timeout_mgr.run_with_timeout(
-                        lambda: self._rag_checker.verify(_text),
-                        timeout_ms=self.config.rag_timeout,
-                        stage="rag_verification",
-                        default=None
-                    )
+                continue
+            
+            # Run RAG
+            rag_stage_start = time.perf_counter()
+            loop = asyncio.get_event_loop()
+            
+            rag_result, rag_error = await loop.run_in_executor(
+                self._executor,
+                lambda ct=claim_text: self.timeout_mgr.run_with_timeout(
+                    lambda: self._rag_checker.verify(ct),
+                    timeout_ms=self.config.rag_timeout,
+                    stage="rag_verification",
+                    default=None
                 )
+            )
+            
+            rag_time = (time.perf_counter() - rag_stage_start) * 1000
+            
+            if rag_error:
+                errors.append(rag_error.to_dict())
+                self.error_logger.log_error(rag_error)
                 
-                rag_time = (time.perf_counter() - stage_start) * 1000
-                timing["stages"].append({
-                    "stage": "rag_verification",
-                    "duration_ms": round(rag_time, 2)
+                from .failsafe import PipelineError
+                if rag_error.error_type == PipelineError.TIMEOUT:
+                    self.degradation.report_rag_timeout()
+                
+                results.append({
+                    "claim_text": claim_text[:200],
+                    "verdict": "NOT_VERIFIABLE",
+                    "confidence": 0.0,
+                    "explanation": f"Erreur RAG: {rag_error.message}",
+                    "sources": [],
+                    "verification_method": "error"
                 })
+            elif rag_result:
+                self.degradation.report_rag_success()
                 
-                if error:
-                    errors.append(error.to_dict())
-                    self.error_logger.log_error(error)
-                    
-                    if error.error_type == PipelineError.TIMEOUT:
-                        self.degradation.report_rag_timeout()
-                    
-                    results.append({
-                        "claim_text": text[:200],
-                        "verdict": "NOT_VERIFIABLE",
-                        "confidence": 0.0,
-                        "explanation": f"Erreur RAG: {error.message}",
-                        "sources": [],
-                        "verification_method": "error"
-                    })
-                elif rag_result:
-                    self.degradation.report_rag_success()
-                    
-                    results.append({
-                        "claim_text": text[:200],
-                        "verdict": rag_result.verdict.value,
-                        "confidence": rag_result.confidence,
-                        "explanation": rag_result.justification,
-                        "sources": [s.to_dict() for s in rag_result.sources],
-                        "verification_method": "rag"
-                    })
+                verdict = rag_result.verdict.value
+                if self.config.translate_verdicts:
+                    verdict = translate_verdict(verdict)
+                
+                results.append({
+                    "claim_text": claim_text[:200],
+                    "verdict": verdict,
+                    "confidence": rag_result.confidence,
+                    "explanation": rag_result.justification,
+                    "sources": [s.to_dict() for s in rag_result.sources],
+                    "verification_method": "rag"
+                })
+            else:
+                results.append({
+                    "claim_text": claim_text[:200],
+                    "verdict": "NOT_VERIFIABLE",
+                    "confidence": 0.0,
+                    "explanation": "Pas de résultat RAG",
+                    "sources": [],
+                    "verification_method": "error"
+                })
+            
+            # Stocker le résultat pour les duplicates
+            if results:
+                verified_results[claim_text] = results[-1]
+        
+        # Appliquer les résultats aux claims similaires (duplicates)
+        for original_text, duplicates in claim_groups.items():
+            if original_text in verified_results and duplicates:
+                original_result = verified_results[original_text]
+                for dup_claim in duplicates:
+                    # Copier le résultat avec le texte du duplicate
+                    dup_result = original_result.copy()
+                    dup_result["claim_text"] = dup_claim.text[:200]
+                    dup_result["verification_method"] = "deduplicated"
+                    results.append(dup_result)
+        
+        # Ajouter timing pour lookup et RAG (agrégé)
+        timing["stages"].append({
+            "stage": "verification",
+            "duration_ms": round((time.perf_counter() - total_start) * 1000 - claim_detection_time, 2)
+        })
         
         # ====================================================================
         # Finalize

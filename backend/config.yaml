@@ -10,8 +10,8 @@ app:
 # Model configurations
 models:
   claim_detector:
-    # DeBERTa-v3-small for claim detection (fast + accurate)
-    model_name: "microsoft/deberta-v3-small"
+    # MiniLM for claim detection (fast)
+    model_name: "sentence-transformers/all-MiniLM-L6-v2"
     max_length: 256
     batch_size: 8
     device: "cuda"
@@ -23,10 +23,10 @@ models:
     device: "cuda"
     
   llm:
-    # Phi-3-mini quantized for verification
-    model_name: "microsoft/Phi-3-mini-4k-instruct"
-    quantization: "4bit"
-    max_new_tokens: 256
+    # Qwen2.5-0.5B - modèle léger et rapide (<3s)
+    model_name: "Qwen/Qwen2.5-0.5B-Instruct"
+    quantization: "none"  # FP16 direct, pas besoin de quantization
+    max_new_tokens: 128
     temperature: 0.1
     device: "cuda"
 
@@ -44,10 +44,10 @@ thresholds:
 
 # Performance targets (milliseconds)
 performance:
-  claim_detection_target_ms: 100
-  fast_lookup_target_ms: 300
-  rag_target_ms: 1500
-  total_target_ms: 2000
+  claim_detection_target_ms: 3000
+  fast_lookup_target_ms: 1000
+  rag_target_ms: 15000
+  total_target_ms: 30000
 
 # Data paths
 data:

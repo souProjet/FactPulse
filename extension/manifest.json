@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "FactPulse",
-  "version": "1.0.0",
-  "description": "Vérification automatique des faits en temps réel",
+  "version": "2.0.0",
+  "description": "Vérification automatique des faits en temps réel avec surlignage inline",
   
   "browser_specific_settings": {
     "gecko": {
